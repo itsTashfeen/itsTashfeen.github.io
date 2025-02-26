@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Research Portal</title>
+    <title>Your Research Portal - Articles</title>
     <style>
-        /* Theme Variables */
+        /* Theme Variables - Same as index.html */
         :root {
-            /* Light Theme (default) */
             --bg-primary: #ffffff;
             --bg-secondary: #f8f9fc;
             --bg-card: #f1f3f9;
@@ -26,7 +25,6 @@
             --blockquote-border: #d8c6e8;
         }
 
-        /* Dark Theme */
         .dark-theme {
             --bg-primary: #1a1a2e;
             --bg-secondary: #16213e;
@@ -46,7 +44,7 @@
             --blockquote-border: #6a4a93;
         }
 
-        /* Base Styles */
+        /* Base Styles - Same as index.html */
         * {
             margin: 0;
             padding: 0;
@@ -64,7 +62,7 @@
             transition: all 0.3s ease;
         }
 
-        /* Typography */
+        /* Typography - Same as index.html */
         h1, h2, h3, h4 {
             font-family: 'Fraunces', 'Georgia', serif;
             font-weight: 700;
@@ -111,7 +109,7 @@
             text-decoration: underline;
         }
 
-        /* Header */
+        /* Header - Same as index.html */
         header {
             margin-bottom: 50px;
             border-bottom: 1px solid var(--border-color);
@@ -134,7 +132,7 @@
             margin-bottom: 0;
         }
 
-        /* Navigation */
+        /* Navigation - Same as index.html */
         nav {
             margin-top: 25px;
             width: 100%;
@@ -176,7 +174,7 @@
             width: 100%;
         }
 
-        /* Theme Toggle */
+        /* Theme Toggle - Same as index.html */
         .theme-toggle {
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
@@ -215,12 +213,12 @@
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23bb86fc'%3E%3Cpath d='M10 6C10 10.4183 13.5817 14 18 14C19.4386 14 20.7885 13.6203 21.9549 12.9556C21.4738 18.0289 17.1692 22 12 22C6.47715 22 2 17.5228 2 12C2 6.83082 5.97106 2.5262 11.0444 2.04506C10.3797 3.21152 10 4.56142 10 6ZM4 12C4 16.4183 7.58172 20 12 20C14.9654 20 17.5757 18.3788 18.9571 15.9546C18.6407 15.9848 18.3214 16 18 16C12.4772 16 8 11.5228 8 6C8 5.67863 8.01524 5.35933 8.04536 5.04293C5.62119 6.42426 4 9.03458 4 12Z'%3E%3C/path%3E%3C/svg%3E");
         }
 
-        /* Main content */
+        /* Main content - Same as index.html */
         main {
             min-height: 70vh;
         }
 
-        /* Article Cards */
+        /* Article Cards - Same as index.html */
         .article-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -292,7 +290,7 @@
             margin-left: 5px;
         }
 
-        /* Tags */
+        /* Tags - Same as index.html */
         .tags {
             display: flex;
             gap: 8px;
@@ -315,7 +313,7 @@
             background-color: var(--accent-light);
         }
 
-        /* Markdown content styles (for article pages) */
+        /* Markdown content styles (for article pages) -  Same as index.html */
         .markdown-content {
             padding: 30px;
             background-color: var(--bg-card);
@@ -380,59 +378,9 @@
             margin: 1.5em 0;
         }
 
-        /* Folder/file navigation */
-        .folder-nav {
-            background-color: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 30px;
-        }
+        /* Folder/file navigation - Removed, not needed on Articles page */
 
-        .folder-nav h3 {
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .folder-list {
-            list-style: none;
-        }
-
-        .folder-item {
-            margin-bottom: 10px;
-        }
-
-        .folder-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 12px;
-            border-radius: 6px;
-            transition: background-color 0.2s ease;
-        }
-
-        .folder-link:hover {
-            background-color: var(--bg-card);
-            text-decoration: none;
-        }
-
-        .folder-icon {
-            width: 20px;
-            height: 20px;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-        }
-
-        .folder-closed {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238a4baf'%3E%3Cpath d='M3 21C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H10.4142L12.4142 5H20C20.5523 5 21 5.44772 21 6V9H4V18.0351L5.4099 11.9636C5.84792 10.0698 7.55185 8.75 9.50039 8.75H21C21.5523 8.75 22 9.19772 22 9.75V20C22 20.5523 21.5523 21 21 21H3ZM5.7149 10.7136L4.00001 18.0351V19H20V10.75H9.50039C8.52611 10.75 7.67645 11.4102 7.45743 12.3562L5.7149 10.7136Z'%3E%3C/path%3E%3C/svg%3E");
-        }
-
-        .file-icon {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238a4baf'%3E%3Cpath d='M3 8L9.00319 2H19.9978C20.5513 2 21 2.45531 21 2.9918V21.0082C21 21.556 20.5551 22 20.0066 22H3.9934C3.44476 22 3 21.5501 3 20.9932V8ZM10 4V9H5V20H19V4H10Z'%3E%3C/path%3E%3C/svg%3E");
-        }
-
-        /* Footer */
+        /* Footer - Same as index.html */
         footer {
             margin-top: 70px;
             padding-top: 25px;
@@ -445,28 +393,9 @@
             gap: 15px;
         }
 
-        /* Breadcrumbs */
-        .breadcrumbs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            font-size: 0.9rem;
-        }
+        /* Breadcrumbs - Removed, not needed on Articles page */
 
-        .breadcrumbs a {
-            color: var(--text-muted);
-        }
-
-        .breadcrumbs span {
-            color: var(--text-secondary);
-        }
-
-        .breadcrumb-separator {
-            color: var(--text-muted);
-        }
-
-        /* Search box */
+        /* Search box - Same as index.html */
         .search-container {
             margin-bottom: 30px;
             position: relative;
@@ -502,7 +431,7 @@
             background-size: contain;
         }
 
-        /* Responsive */
+        /* Responsive - Same as index.html */
         @media (max-width: 700px) {
             h1 {
                 font-size: 2rem;
@@ -526,7 +455,7 @@
             }
         }
 
-        /* Font imports */
+        /* Font imports - Same as index.html */
         @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap');
     </style>
 </head>
@@ -545,9 +474,9 @@
 
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="research.html">Research</a></li>
-                <li><a href="Articles/Articles.html">Articles</a></li>
+                <li><a href="articles.html">Articles</a></li>
                 <li><a href="notes.html">Notes</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -561,112 +490,100 @@
             <input type="text" class="search-input" id="searchInput" placeholder="Search your notes and articles...">
         </div>
 
-        <section class="folder-nav">
-            <h3>Browse Notes</h3>
-            <ul class="folder-list">
-                <li class="folder-item">
-                    <a href="folder1.html" class="folder-link">
-                        <span class="folder-icon folder-closed"></span>
-                        <span>Research Methods</span>
-                    </a>
-                </li>
-                <li class="folder-item">
-                    <a href="folder2.html" class="folder-link">
-                        <span class="folder-icon folder-closed"></span>
-                        <span>Literature Reviews</span>
-                    </a>
-                </li>
-                <li class="folder-item">
-                    <a href="notes/note1.html" class="folder-link">
-                        <span class="folder-icon file-icon"></span>
-                        <span>Key Concepts.md</span>
-                    </a>
-                </li>
-            </ul>
-        </section>
-
-        <section class="featured">
-            <h2>Featured Research</h2>
+        <section class="article-section">
+            <h2>Articles</h2>
             <div class="article-list">
+                <!-- Placeholder article cards -->
                 <article class="article-card">
-                    <h3>Title of Your Research Paper</h3>
+                    <h3>Article Title 1</h3>
                     <div class="article-meta">
-                        Published in Journal Name, March 2023
+                        Published in Journal Name, January 2024
                     </div>
                     <div class="article-excerpt">
-                        <p>
-                            This is a brief summary of your research paper. Explain the key findings and importance
-                            of this work in a way that makes it interesting to both experts and non-experts.
-                            Include enough detail to give readers a sense of what makes this research valuable.
-                        </p>
+                        <p>A brief summary of the article. This should give readers an idea of what the article is about.</p>
                     </div>
                     <div class="tags">
-                        <span class="tag">Research Topic</span>
+                        <span class="tag">Topic 1</span>
+                        <span class="tag">Keyword</span>
+                    </div>
+                    <a href="article-1.html" class="read-more">Read Article</a>
+                </article>
+
+                <article class="article-card">
+                    <h3>Article Title 2</h3>
+                    <div class="article-meta">
+                        Published in Conference Name, February 2024
+                    </div>
+                    <div class="article-excerpt">
+                        <p>A description of this article with some details on the findings and its importance. </p>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Topic 2</span>
                         <span class="tag">Methodology</span>
-                        <span class="tag">Field</span>
                     </div>
-                    <a href="research/paper-title.html" class="read-more">Read Full Paper</a>
+                    <a href="article-2.html" class="read-more">Read Article</a>
                 </article>
 
                 <article class="article-card">
-                    <h3>Another Important Research Paper</h3>
+                    <h3>Article Title 3</h3>
                     <div class="article-meta">
-                        Published in Journal Name, October 2022
+                        Published in Journal X, March 2024
                     </div>
                     <div class="article-excerpt">
-                        <p>
-                            A concise description of this research project, highlighting its contribution
-                            to the field and why it matters. Focus on making complex ideas accessible
-                            while maintaining academic rigor.
-                        </p>
+                        <p>This is another article description.  Highlight the key points or findings.</p>
                     </div>
                     <div class="tags">
-                        <span class="tag">Research Topic</span>
-                        <span class="tag">Field</span>
+                        <span class="tag">Topic A</span>
+                        <span class="tag">Analysis</span>
                     </div>
-                    <a href="research/another-paper.html" class="read-more">Read Full Paper</a>
-                </article>
-            </div>
-        </section>
-
-        <section class="recent-articles">
-            <h2>Recent Notes</h2>
-            <div class="article-list">
-                <article class="article-card">
-                    <h3>Key Concepts in Machine Learning</h3>
-                    <div class="article-meta">
-                        Last updated February 22, 2025
-                    </div>
-                    <div class="article-excerpt">
-                        <p>
-                            A collection of important concepts and definitions in machine learning,
-                            organized by area of application and with relevant examples.
-                        </p>
-                    </div>
-                    <div class="tags">
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">Notes</span>
-                    </div>
-                    <a href="notes/ml-concepts.html" class="read-more">View Notes</a>
+                    <a href="article-3.html" class="read-more">Read Article</a>
                 </article>
 
                 <article class="article-card">
-                    <h3>Literature Review: Neural Networks</h3>
+                    <h3>Article Title 4</h3>
                     <div class="article-meta">
-                        Last updated February 10, 2025
+                        Published in a relevant publication, April 2024
                     </div>
                     <div class="article-excerpt">
-                        <p>
-                            A comprehensive literature review covering recent developments in neural network
-                            architectures, with a focus on applications in natural language processing.
-                        </p>
+                        <p>More information on this paper with a brief overview and conclusion.</p>
                     </div>
                     <div class="tags">
-                        <span class="tag">Neural Networks</span>
-                        <span class="tag">Literature Review</span>
+                        <span class="tag">Topic B</span>
+                        <span class="tag">Results</span>
                     </div>
-                    <a href="notes/neural-networks-review.html" class="read-more">View Notes</a>
+                    <a href="article-4.html" class="read-more">Read Article</a>
                 </article>
+
+                <article class="article-card">
+                    <h3>Article Title 5</h3>
+                    <div class="article-meta">
+                        Published in a publication, May 2024
+                    </div>
+                    <div class="article-excerpt">
+                        <p>Final article example.</p>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Topic C</span>
+                        <span class="tag">Discussion</span>
+                    </div>
+                    <a href="article-5.html" class="read-more">Read Article</a>
+                </article>
+
+                <article class="article-card">
+                    <h3>Article Title 6</h3>
+                    <div class="article-meta">
+                        Published in publication, June 2024
+                    </div>
+                    <div class="article-excerpt">
+                        <p>Sixth article!</p>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Topic D</span>
+                        <span class="tag">Review</span>
+                    </div>
+                    <a href="article-6.html" class="read-more">Read Article</a>
+                </article>
+                <!-- Add more article cards here as needed -->
             </div>
         </section>
     </main>
@@ -684,20 +601,20 @@
     </footer>
 
     <script>
-        // Theme toggling functionality
+        // Theme toggling functionality - Same as index.html
         const themeToggle = document.getElementById('themeToggle');
         const themeText = document.getElementById('themeText');
         const lightIcon = document.getElementById('lightIcon');
         const darkIcon = document.getElementById('darkIcon');
         const htmlElement = document.documentElement;
 
-        // Check for saved theme preference
+        // Check for saved theme preference - Same as index.html
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
             applyDarkTheme();
         }
 
-        // Theme toggle event listener
+        // Theme toggle event listener - Same as index.html
         themeToggle.addEventListener('click', () => {
             if (htmlElement.classList.contains('dark-theme')) {
                 applyLightTheme();
@@ -722,7 +639,7 @@
             localStorage.setItem('theme', 'light');
         }
 
-        // Simple search functionality (placeholder)
+        // Simple search functionality (placeholder) - Same as index.html
         const searchInput = document.getElementById('searchInput');
         searchInput.addEventListener('keyup', (e) => {
             if (e.key === 'Enter') {
@@ -730,8 +647,6 @@
                 if (searchTerm) {
                     // This would typically connect to a search function or redirect to search results
                     alert(`Searching for: ${searchTerm}`);
-                    // In a real implementation, you'd redirect to a search results page
-                    // window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}`;
                 }
             }
         });
