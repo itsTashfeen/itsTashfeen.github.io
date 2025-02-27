@@ -82,14 +82,16 @@
             margin-bottom: 1rem;
             position: relative;
             padding-bottom: 0.5rem;
+            text-align: center; /* Center the heading */
         }
 
         h2::after {
             content: "";
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 840px;
             height: 3px;
             background-color: var(--accent-primary);
         }
@@ -378,7 +380,39 @@
             margin: 1.5em 0;
         }
 
-        /* Folder/file navigation - Removed, not needed on Articles page */
+        /* Filter Controls */
+        .filter-controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-controls label {
+            font-weight: 600;
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .filter-controls select {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: all 0.8s ease;
+            width: auto;
+        }
+
+        .filter-controls select:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+
 
         /* Footer - Same as index.html */
         footer {
@@ -391,44 +425,6 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 15px;
-        }
-
-        /* Breadcrumbs - Removed, not needed on Articles page */
-
-        /* Search box - Same as index.html */
-        .search-container {
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 12px 15px 12px 40px;
-            border-radius: 30px;
-            border: 1px solid var(--border-color);
-            background-color: var(--bg-secondary);
-            color: var(--text-primary);
-            font-size: 1rem;
-            transition: all 0.8s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--accent-primary);
-            box-shadow: 0 0 0 3px var(--accent-light);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 16px;
-            height: 16px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238a4baf'%3E%3Cpath d='M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z'%3E%3C/path%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
         }
 
         /* Responsive - Same as index.html */
@@ -484,16 +480,29 @@
     </header>
 
     <main>
-        <div class="search-container">
-            <span class="search-icon"></span>
-            <input type="text" class="search-input" id="searchInput" placeholder="Search your notes and articles...">
-        </div>
-
         <section class="article-section">
             <h2>Articles</h2>
-            <div class="article-list">
+            <p>Explore a curated selection of articles.</p> <!-- Added text here -->
+            <div class="filter-controls">
+                <label for="categoryFilter">Filter by Category:</label>
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="topic1">Topic 1</option>
+                    <option value="topic2">Topic 2</option>
+                    <option value="topic3">Topic 3</option>
+                </select>
+
+                <label for="yearFilter">Filter by Year:</label>
+                <select id="yearFilter">
+                    <option value="all">All Years</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                </select>
+            </div>
+            <div class="article-list" id="articleList">
                 <!-- Placeholder article cards -->
-                <article class="article-card">
+                <article class="article-card" data-category="topic1" data-year="2024">
                     <h3>Article Title 1</h3>
                     <div class="article-meta">
                         Published in Journal Name, January 2024
@@ -508,7 +517,7 @@
                     <a href="article-1.html" class="read-more">Read Article</a>
                 </article>
 
-                <article class="article-card">
+                <article class="article-card" data-category="topic2" data-year="2023">
                     <h3>Article Title 2</h3>
                     <div class="article-meta">
                         Published in Conference Name, February 2024
@@ -523,7 +532,7 @@
                     <a href="article-2.html" class="read-more">Read Article</a>
                 </article>
 
-                <article class="article-card">
+                <article class="article-card" data-category="topic1" data-year="2024">
                     <h3>Article Title 3</h3>
                     <div class="article-meta">
                         Published in Journal X, March 2024
@@ -538,7 +547,7 @@
                     <a href="article-3.html" class="read-more">Read Article</a>
                 </article>
 
-                <article class="article-card">
+                <article class="article-card" data-category="topic3" data-year="2023">
                     <h3>Article Title 4</h3>
                     <div class="article-meta">
                         Published in a relevant publication, April 2024
@@ -553,7 +562,7 @@
                     <a href="article-4.html" class="read-more">Read Article</a>
                 </article>
 
-                <article class="article-card">
+                <article class="article-card" data-category="topic2" data-year="2022">
                     <h3>Article Title 5</h3>
                     <div class="article-meta">
                         Published in a publication, May 2024
@@ -568,7 +577,7 @@
                     <a href="article-5.html" class="read-more">Read Article</a>
                 </article>
 
-                <article class="article-card">
+                <article class="article-card" data-category="topic3" data-year="2022">
                     <h3>Article Title 6</h3>
                     <div class="article-meta">
                         Published in publication, June 2024
@@ -637,16 +646,38 @@
             localStorage.setItem('theme', 'light');
         }
 
-        // Simple search functionality (placeholder) - Same as index.html
-        const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('keyup', (e) => {
-            if (e.key === 'Enter') {
-                const searchTerm = searchInput.value.toLowerCase().trim();
-                if (searchTerm) {
-                    // This would typically connect to a search function or redirect to search results
-                    alert(`Searching for: ${searchTerm}`);
-                }
+        // Article Filtering
+        document.addEventListener('DOMContentLoaded', () => {
+            const categoryFilter = document.getElementById('categoryFilter');
+            const yearFilter = document.getElementById('yearFilter');
+            const articleList = document.getElementById('articleList');
+            const articleCards = document.querySelectorAll('.article-card');
+
+            function filterArticles() {
+                const selectedCategory = categoryFilter.value.toLowerCase();
+                const selectedYear = yearFilter.value;
+
+                articleCards.forEach(card => {
+                    const category = card.dataset.category ? card.dataset.category.toLowerCase() : '';
+                    const year = card.dataset.year;
+
+                    const categoryMatch = selectedCategory === 'all' || category === selectedCategory;
+                    const yearMatch = selectedYear === 'all' || year === selectedYear;
+
+                    if (categoryMatch && yearMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             }
+
+            // Add event listeners to the filter selects
+            categoryFilter.addEventListener('change', filterArticles);
+            yearFilter.addEventListener('change', filterArticles);
+
+            // Initial filter
+            filterArticles();
         });
     </script>
 </body>
