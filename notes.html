@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Research Portal - Contact</title>
+    <title>Your Research Portal - Notes</title>
     <style>
         /* Theme Variables - Same as index.html */
         :root {
@@ -218,61 +218,73 @@
             min-height: 70vh;
         }
 
-        /* Contact Form Styles */
-        .contact-form {
+        /* Notes Section Styles */
+        .notes-section {
+        }
+
+        .topic-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+
+        .topic-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            transition: color 0.8s ease;
+        }
+
+        .topic-title:hover {
+            color: var(--accent-primary);
+        }
+
+        .topic-title::after {
+            content: "+"; /* Plus sign, initially closed */
+            font-size: 1.5rem;
+            transition: transform 0.8s ease;
+        }
+
+        .topic-content {
+            display: none; /* Initially hidden */
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
             background-color: var(--bg-card);
-            padding: 30px;
-            border-radius: 12px;
             box-shadow: var(--card-shadow);
         }
 
-        .contact-form label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-secondary);
+        .topic-item.open .topic-content {
+            display: block; /* Show when expanded */
         }
 
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 1.2rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            background-color: var(--bg-secondary);
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.8s ease;
+        .topic-item.open .topic-title::after {
+            content: "-"; /* Minus sign when expanded */
+            transform: rotate(180deg);
         }
 
-        .contact-form input[type="text"]:focus,
-        .contact-form input[type="email"]:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--accent-primary);
+        /* Optional: Style for individual notes within a topic */
+        .note-item {
+            margin-bottom: 0.75rem;
+            list-style: none; /* Remove the bullet points */
         }
 
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 150px;
+        .note-item a {
+          display: inline-block;
+          padding: 0.5rem 1rem;
+          border-radius: 6px;
+          background-color: var(--bg-secondary);
+          color: var(--text-primary);
+          text-decoration: none;
+          transition: background-color 0.8s ease;
         }
 
-        .contact-form button[type="submit"] {
-            background-color: var(--accent-primary);
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.8s ease;
-        }
-
-        .contact-form button[type="submit"]:hover {
-            background-color: var(--accent-secondary);
+        .note-item a:hover {
+          background-color: var(--bg-card);
         }
 
         /* Footer - Same as index.html */
@@ -288,8 +300,6 @@
             gap: 15px;
         }
 
-        /* Breadcrumbs - Removed */
-
         /* Responsive - Same as index.html */
         @media (max-width: 700px) {
             h1 {
@@ -300,7 +310,7 @@
                 padding: 20px 15px;
             }
 
-            .markdown-content {
+            .markdown-content { /* If you use markdown */
                 padding: 20px 15px;
             }
 
@@ -340,31 +350,34 @@
     </header>
 
     <main>
-        <section class="contact-section">
-            <h2>Contact Me</h2>
-            <div class="contact-form">
-                <form
-                  action="https://formspree.io/f/xrbewnek"
-                  method="POST"
-                >
-                    <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" required>
+        <section class="notes-section">
+            <h2>Notes</h2>
 
-                    <label for="email">Your Email:</label>
-                    <input type="email" id="email" name="email" required>
-
-                    <label for="message">Your Message:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-
-                    <!-- Honeypot (hidden field) - Anti-spam -->
-                    <input type="hidden" name="_honey" value="">
-
-                    <!--  Add a  hidden field for the Formspree success redirect if needed -->
-                    <!-- <input type="hidden" name="_next" value="thank-you.html" /> -->
-
-                    <button type="submit">Send Message</button>
-                </form>
+            <div class="topic-item">
+                <h3 class="topic-title">Machine Learning Basics</h3>
+                <div class="topic-content">
+                    <p>Fundamental concepts in machine learning.</p>
+                    <ul class="notes-list">
+                        <li class="note-item"><a href="supervised-learning.html">Supervised Learning</a></li>
+                        <li class="note-item"><a href="unsupervised-learning.html">Unsupervised Learning</a></li>
+                        <li class="note-item"><a href="model-evaluation.html">Model Evaluation</a></li>
+                    </ul>
+                </div>
             </div>
+
+            <div class="topic-item">
+                <h3 class="topic-title">Neural Networks</h3>
+                <div class="topic-content">
+                    <p>An introduction to neural networks.</p>
+                    <ul class="notes-list">
+                        <li class="note-item"><a href="perceptrons.html">Perceptrons</a></li>
+                        <li class="note-item"><a href="backpropagation.html">Backpropagation</a></li>
+                        <li class="note-item"><a href="activation-functions.html">Activation Functions</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Add more topic items here -->
         </section>
     </main>
 
@@ -417,6 +430,18 @@
             darkIcon.style.display = 'none';
             localStorage.setItem('theme', 'light');
         }
+
+        // Note Topics - Expand/Collapse Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const topicTitles = document.querySelectorAll('.topic-title');
+
+            topicTitles.forEach(title => {
+                title.addEventListener('click', () => {
+                    const topicItem = title.closest('.topic-item');
+                    topicItem.classList.toggle('open');
+                });
+            });
+        });
     </script>
 </body>
 </html>
