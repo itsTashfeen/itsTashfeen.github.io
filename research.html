@@ -82,14 +82,16 @@
             margin-bottom: 1rem;
             position: relative;
             padding-bottom: 0.5rem;
+            text-align: left; /* Center the heading */
         }
 
         h2::after {
             content: "";
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 840px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
             height: 3px;
             background-color: var(--accent-primary);
         }
