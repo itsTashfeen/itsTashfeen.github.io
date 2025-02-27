@@ -482,19 +482,21 @@
     <main>
         <section class="article-section">
             <h2>Articles</h2>
-            <p>Explore a curated selection of articles.</p> <!-- Added text here -->
+            <p>Explore a curated selection of articles.</p>
             <div class="filter-controls">
                 <label for="categoryFilter">Filter by Category:</label>
                 <select id="categoryFilter">
                     <option value="all">All Categories</option>
-                    <option value="topic1">Topic 1</option>
-                    <option value="topic2">Topic 2</option>
-                    <option value="topic3">Topic 3</option>
+                    <option value="Primer">Primer</option>
+                    <option value="Structured Products">Structured Products</option>
+                    <option value="Hybrids">Hybrids</option>
+                    <option value="Sex">Sex</option>
                 </select>
 
                 <label for="yearFilter">Filter by Year:</label>
                 <select id="yearFilter">
                     <option value="all">All Years</option>
+                    <option value="2025">2025</option>
                     <option value="2024">2024</option>
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>
@@ -502,19 +504,21 @@
             </div>
             <div class="article-list" id="articleList">
                 <!-- Placeholder article cards -->
-                <article class="article-card" data-category="topic1" data-year="2024">
-                    <h3>Article Title 1</h3>
+                <article class="article-card" data-category="Structured Products,Primer,Hybrids,Sex" data-year="2025">
+                    <h3>Structured Notes: A Primer</h3>
                     <div class="article-meta">
-                        Published in Journal Name, January 2024
+                        Published in Structured Products Journal, Feb 26 2025
                     </div>
                     <div class="article-excerpt">
-                        <p>A brief summary of the article. This should give readers an idea of what the article is about.</p>
+                        <p>A brief introduction to structured notes, how they're packaged, the types, pricing methods and more.</p>
                     </div>
                     <div class="tags">
-                        <span class="tag">Topic 1</span>
-                        <span class="tag">Keyword</span>
+                        <span class="tag">Structured Products</span>
+                        <span class="tag">Hybrids</span>
+                        <span class="tag">Primer</span>
+                        <span class="tag">Sex</span>
                     </div>
-                    <a href="article-1.html" class="read-more">Read Article</a>
+                    <a href="Articles/Derivatives/structured%20notes.html" class="read-more">Read Article</a>
                 </article>
 
                 <article class="article-card" data-category="topic2" data-year="2023">
@@ -658,10 +662,10 @@
                 const selectedYear = yearFilter.value;
 
                 articleCards.forEach(card => {
-                    const category = card.dataset.category ? card.dataset.category.toLowerCase() : '';
+                    const categories = card.dataset.category ? card.dataset.category.toLowerCase().split(',') : []; // Split by comma
                     const year = card.dataset.year;
 
-                    const categoryMatch = selectedCategory === 'all' || category === selectedCategory;
+                    const categoryMatch = selectedCategory === 'all' || categories.includes(selectedCategory);
                     const yearMatch = selectedYear === 'all' || year === selectedYear;
 
                     if (categoryMatch && yearMatch) {
