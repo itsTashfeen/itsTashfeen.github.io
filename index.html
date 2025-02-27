@@ -466,42 +466,6 @@
             color: var(--text-muted);
         }
 
-        /* Search box */
-        .search-container {
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 12px 15px 12px 40px;
-            border-radius: 30px;
-            border: 1px solid var(--border-color);
-            background-color: var(--bg-secondary);
-            color: var(--text-primary);
-            font-size: 1rem;
-            transition: all 0.8s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--accent-primary);
-            box-shadow: 0 0 0 3px var(--accent-light);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 16px;
-            height: 16px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238a4baf'%3E%3Cpath d='M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z'%3E%3C/path%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-        }
-
         /* Responsive */
         @media (max-width: 700px) {
             h1 {
@@ -548,7 +512,6 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="articles.html">Articles</a></li>
-                <li><a href="notes.html">Notes</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -556,23 +519,20 @@
     </header>
 
     <main>
-        <div class="search-container">
-            <span class="search-icon"></span>
-            <input type="text" class="search-input" id="searchInput" placeholder="Search your notes and articles...">
-        </div>
+        <!-- Search bar removed from here -->
 
         <section class="folder-nav">
-            <h3>Browse Notes</h3>
+            <h3>Latest Things</h3>
             <ul class="folder-list">
                 <li class="folder-item">
                     <a href="folder1.html" class="folder-link">
-                        <span class="folder-icon folder-closed"></span>
+                        <span class="folder-icon file-icon"></span>
                         <span>Research Methods</span>
                     </a>
                 </li>
                 <li class="folder-item">
                     <a href="folder2.html" class="folder-link">
-                        <span class="folder-icon folder-closed"></span>
+                        <span class="folder-icon file-icon"></span>
                         <span>Literature Reviews</span>
                     </a>
                 </li>
@@ -630,7 +590,7 @@
         </section>
 
         <section class="recent-articles">
-            <h2>Recent Notes</h2>
+            <h2>Recent Articles</h2>
             <div class="article-list">
                 <article class="article-card">
                     <h3>Key Concepts in Machine Learning</h3>
@@ -721,19 +681,7 @@
             localStorage.setItem('theme', 'light');
         }
 
-        // Simple search functionality (placeholder)
-        const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('keyup', (e) => {
-            if (e.key === 'Enter') {
-                const searchTerm = searchInput.value.toLowerCase().trim();
-                if (searchTerm) {
-                    // This would typically connect to a search function or redirect to search results
-                    alert(`Searching for: ${searchTerm}`);
-                    // In a real implementation, you'd redirect to a search results page
-                    // window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}`;
-                }
-            }
-        });
+        // Removed search functionality script
     </script>
 </body>
 </html>
