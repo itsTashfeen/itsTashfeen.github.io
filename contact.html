@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" class="light-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Delta Donut - Contact</title>
+    <style>
+        /* Theme Variables - Same as index.html */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fc;
+            --bg-card: #f1f3f9;
+            --text-primary: #333333;
+            --text-secondary: #5a6a7e;
+            --text-muted: #64748b;
+            --accent-primary: #8a4baf;
+            --accent-secondary: #a56cc1;
+            --accent-light: #eee4f4;
+            --border-color: #eaeef2;
+            --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --tag-bg: #f1e8fa;
+            --tag-color: #7e3bad;
+            --code-bg: #f4f0f9;
+            --blockquote-bg: #f9f6fc;
+            --blockquote-border: #d8c6e8;
+        }
+
+        .dark-theme {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --bg-card: #222a42;
+            --text-primary: #e6e6fa;
+            --text-secondary: #b8c1cf;
+            --text-muted: #949db0;
+            --accent-primary: #bb86fc;
+            --accent-secondary: #9d65d0;
+            --accent-light: #2d2040;
+            --border-color: #31375c;
+            --card-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            --tag-bg: #372a50;
+            --tag-color: #c39fec;
+            --code-bg: #2a2240;
+            --blockquote-bg: #272138;
+            --blockquote-border: #6a4a93;
+        }
+
+        /* Base Styles - Same as index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            transition: all 0.8s ease;
+        }
+
+        /* Typography - Same as index.html */
+        h1, h2, h3, h4 {
+            font-family: 'Fraunces', 'Georgia', serif;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--text-primary);
+            margin-bottom: 0.8em;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-primary);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.8s ease;
+        }
+
+        a:hover {
+            color: var(--accent-secondary);
+            text-decoration: underline;
+        }
+
+        /* Header - Same as index.html */
+        header {
+            margin-bottom: 50px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .site-title {
+            flex: 1;
+        }
+
+        .site-title p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        /* Navigation - Same as index.html */
+        nav {
+            margin-top: 25px;
+            width: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.8s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent-primary);
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-primary);
+            transition: width 0.8s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Theme Toggle - Same as index.html */
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: background-color 0.8s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--bg-card);
+        }
+
+        .theme-toggle span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .theme-icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+
+        .light-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238a4baf'%3E%3Cpath d='M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z'%3E%3C/path%3E%3C/svg%3E");
+        }
+
+        .dark-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23bb86fc'%3E%3Cpath d='M10 6C10 10.4183 13.5817 14 18 14C19.4386 14 20.7885 13.6203 21.9549 12.9556C21.4738 18.0289 17.1692 22 12 22C6.47715 22 2 17.5228 2 12C2 6.83082 5.97106 2.5262 11.0444 2.04506C10.3797 3.21152 10 4.56142 10 6ZM4 12C4 16.4183 7.58172 20 12 20C14.9654 20 17.5757 18.3788 18.9571 15.9546C18.6407 15.9848 18.3214 16 18 16C12.4772 16 8 11.5228 8 6C8 5.67863 8.01524 5.35933 8.04536 5.04293C5.62119 6.42426 4 9.03458 4 12Z'%3E%3C/path%3E%3C/svg%3E");
+        }
+
+        /* Main content - Same as index.html */
+        main {
+            min-height: 70vh;
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1.2rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.8s ease;
+        }
+
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-form button[type="submit"] {
+            background-color: var(--accent-primary);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.8s ease;
+        }
+
+        .contact-form button[type="submit"]:hover {
+            background-color: var(--accent-secondary);
+        }
+
+        /* Footer - Same as index.html */
+        footer {
+            margin-top: 70px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* Breadcrumbs - Removed */
+
+        /* Responsive - Same as index.html */
+        @media (max-width: 700px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            body {
+                padding: 20px 15px;
+            }
+
+            .markdown-content {
+                padding: 20px 15px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Font imports - Same as index.html */
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <div class="site-title">
+            <h1>The Delta Donut</h1>
+
+            <p>My personal page for uploading everything data and dollars. I try to deconstruct derivatives, one smart
+                article a time. I also post articles probability related or more general finance. </p>
+            <p>Enjoy!</p>
+        </div>
+
+        <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon light-icon" id="lightIcon"></span>
+            <span class="theme-icon dark-icon" id="darkIcon" style="display: none;"></span>
+            <span id="themeText">Dark Mode</span>
+        </button>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <h2>Contact Me</h2>
+            <div class="contact-form">
+                <form
+                  action="https://formspree.io/f/xrbewnek"
+                  method="POST"
+                >
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <!-- Honeypot (hidden field) - Anti-spam -->
+                    <input type="hidden" name="_honey" value="">
+
+                    <!--  Add a  hidden field for the Formspree success redirect if needed -->
+                    <!-- <input type="hidden" name="_next" value="thank-you.html" /> -->
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="copyright">
+            © 2025 Tashfeen Omran. All rights reserved.
+        </div>
+        <div class="links">
+            <a href="mailto:replytashfeen@gmail.com">Email</a> |
+            <a href="https://twitter.com/OmranTashfeen">Twitter</a> |
+            <a href="https://github.com/itsTashfeen">GitHub</a> |
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggling functionality - Same as index.html
+        const themeToggle = document.getElementById('themeToggle');
+        const themeText = document.getElementById('themeText');
+        const lightIcon = document.getElementById('lightIcon');
+        const darkIcon = document.getElementById('darkIcon');
+        const htmlElement = document.documentElement;
+
+        // Check for saved theme preference - Same as index.html
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            applyDarkTheme();
+        }
+
+        // Theme toggle event listener - Same as index.html
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark-theme')) {
+                applyLightTheme();
+            } else {
+                applyDarkTheme();
+            }
+        });
+
+        function applyDarkTheme() {
+            htmlElement.classList.add('dark-theme');
+            themeText.textContent = 'Light Mode';
+            lightIcon.style.display = 'none';
+            darkIcon.style.display = 'block';
+            localStorage.setItem('theme', 'dark');
+        }
+
+        function applyLightTheme() {
+            htmlElement.classList.remove('dark-theme');
+            themeText.textContent = 'Dark Mode';
+            lightIcon.style.display = 'block';
+            darkIcon.style.display = 'none';
+            localStorage.setItem('theme', 'light');
+        }
+    </script>
+</body>
+</html>
