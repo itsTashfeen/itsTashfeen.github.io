@@ -8,7 +8,7 @@
 
   // Make the site title a link to the homepage
   document.addEventListener('DOMContentLoaded', function() {
-    const siteTitle = document.querySelector('.site-title h1');
+    const siteTitle = document.querySelector('.site-title'); // Select the parent div
 
     if (siteTitle) {
       const homeURL = 'index.html'; // Or your actual homepage URL
@@ -16,12 +16,13 @@
       const link = document.createElement('a');
       link.href = homeURL;
       link.style.textDecoration = 'none'; // Remove underline from the link
-        link.style.color = 'inherit'; // Inherit color from parent
-      // Copy the h1's content into the link
-      link.innerHTML = siteTitle.innerHTML;
-
+      link.style.color = 'inherit'; // Inherit color from parent
+        link.style.display = 'block'; // Make the link a block-level element
+        link.innerHTML = siteTitle.innerHTML
+        siteTitle.innerHTML = ""
+        siteTitle.appendChild(link)
       // Replace the h1 with the link
-      siteTitle.parentNode.replaceChild(link, siteTitle);
+      //siteTitle.parentNode.replaceChild(link, siteTitle);
     }
   });
 })();
