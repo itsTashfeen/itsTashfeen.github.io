@@ -5,22 +5,28 @@
     document.documentElement.classList.add('dark-theme');
   }
 
-  // Make the site title a link to the homepage and update nav links
+  // Navigation links configuration in JSON format
+  const navigationConfig = [
+    { text: 'Home', href: 'index.html' },
+    { text: 'Research', href: 'research.html' },
+    { text: 'Articles', href: 'articles.html' },
+    { text: 'About', href: 'about.html' },
+    { text: 'Contact', href: 'contact.html' }
+  ];
+
   document.addEventListener('DOMContentLoaded', function() {
     const siteTitle = document.querySelector('.site-title');
-    const navLinks = document.querySelectorAll('nav ul li a');
+    let pathPrefix = '';
+    let homeURL = 'index.html';
 
+    // Determine path prefix based on location
+    if (window.location.pathname.includes('/Articles/')) {
+      pathPrefix = '../../../';
+      homeURL = '../../../index.html';
+    }
+
+    // Make the site title a link to the homepage
     if (siteTitle) {
-      let homeURL = 'index.html';
-      let pathPrefix = '';
-
-      // Check if we're in the Articles subdirectory
-      if (window.location.pathname.includes('/Articles/')) {
-        homeURL = '../../index.html';
-        pathPrefix = '../../';
-      }
-
-      // Apply to title
       const link = document.createElement('a');
       link.href = homeURL;
       link.style.textDecoration = 'none';
@@ -29,13 +35,24 @@
       link.innerHTML = siteTitle.innerHTML;
       siteTitle.innerHTML = "";
       siteTitle.appendChild(link);
+    }
 
-      // Update navigation links
-      navLinks.forEach(link => {
-        if (!link.href.startsWith('http')) {
-          link.href = pathPrefix + link.getAttribute('href');
+    // Generate and inject the navigation
+    const nav = document.querySelector('nav');
+    if (nav) { //make sure there is a nav element
+      const ul = document.createElement('ul');
+      navigationConfig.forEach(item => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = pathPrefix + item.href;
+        a.textContent = item.text;
+        if (!a.href.startsWith('http')) {
+          a.href = pathPrefix + a.getAttribute('href');
         }
+        li.appendChild(a);
+        ul.appendChild(li);
       });
+      nav.appendChild(ul);
     }
 
     // Inject the footer
@@ -45,6 +62,7 @@
         </div>
         <div class="links">
             <a href="mailto:replytashfeen@gmail.com">Email</a> |
+            <a href="https://www.linkedin.com/in/tashfeenomran/">LinkedIn</a> |
             <a href="https://twitter.com/OmranTashfeen">Twitter</a> |
             <a href="https://github.com/itsTashfeen">GitHub</a> |
         </div>

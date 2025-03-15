@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en" class="light-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Delta Donut - BSM Model Assumptions</title>
+    <script src="../../../theme-init.js"></script>
+    <style>
+        /*  Include the ENTIRE CSS from your articles.html and main index.html file here to ensure consistent styling */
+        /*  Theme Variables - Same as index.html and articles.html */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fc;
+            --bg-card: #f1f3f9;
+            --text-primary: #333333;
+            --text-secondary: #5a6a7e;
+            --text-muted: #64748b;
+            --accent-primary: #8a4baf;
+            --accent-secondary: #a56cc1;
+            --accent-light: #eee4f4;
+            --border-color: #eaeef2;
+            --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --tag-bg: #f1e8fa;
+            --tag-color: #7e3bad;
+            --code-bg: #f4f0f9;
+            --blockquote-bg: #f9f6fc;
+            --blockquote-border: #d8c6e8;
+        }
+
+        .dark-theme {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --bg-card: #222a42;
+            --text-primary: #e6e6fa;
+            --text-secondary: #b8c1cf;
+            --text-muted: #949db0;
+            --accent-primary: #bb86fc;
+            --accent-secondary: #9d65d0;
+            --accent-light: #2d2040;
+            --border-color: #31375c;
+            --card-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            --tag-bg: #372a50;
+            --tag-color: #c39fec;
+            --code-bg: #2a2240;
+            --blockquote-bg: #272138;
+            --blockquote-border: #6a4a93;
+        }
+
+        /* Base Styles - Same as index.html and articles.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            transition: all 0.8s ease;
+        }
+
+        /* Typography - Same as index.html and articles.html */
+        h1, h2, h3, h4 {
+            font-family: 'Fraunces', 'Georgia', serif;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--text-primary);
+            margin-bottom: 0.8em;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px; /* Use current value or adjust */
+            height: 3px;
+            background-color: var(--accent-primary);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.8s ease;
+        }
+
+        a:hover {
+            color: var(--accent-secondary);
+            text-decoration: underline;
+        }
+
+        /* Header - Same as index.html and articles.html */
+        header {
+            margin-bottom: 50px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .site-title {
+            flex: 1;
+        }
+
+        .site-title p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        /* Navigation - Same as index.html and articles.html */
+        nav {
+            margin-top: 25px;
+            width: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.8s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent-primary);
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-primary);
+            transition: width 0.8s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Theme Toggle - Same as index.html and articles.html */
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: background-color 0.8s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--bg-card);
+        }
+
+        .theme-toggle span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .theme-icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+
+        .light-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238a4baf'%3E%3Cpath d='M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z'%3E%3C/path%3E%3C/svg%3E");
+        }
+
+        .dark-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23bb86fc'%3E%3Cpath d='M10 6C10 10.4183 13.5817 14 18 14C19.4386 14 20.7885 13.6203 21.9549 12.9556C21.4738 18.0289 17.1692 22 12 22C6.47715 22 2 17.5228 2 2.82082 5.97106 2.5262 11.0444 2.04506C10.3797 3.21152 10 4.56142 10 6ZM4 12C4 16.4183 7.58172 20 12 20C14.9654 20 17.5757 18.3788 18.9571 15.9546C18.6407 15.9848 18.3214 16 18 16C12.4772 16 8 11.5228 8 6C8 5.67863 8.01524 5.35933 8.04536 5.04293C5.62119 6.42426 4 9.03458 4 12Z'%3E%3C/path%3E%3C/svg%3E");
+        }
+
+        /* Main content - Same as index.html and articles.html */
+        main {
+            min-height: 70vh;
+        }
+
+        /* Markdown content styles - For the main article content */
+        .article-content {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .article-content h1,
+        .article-content h2,
+        .article-content h3,
+        .article-content h4 {
+            margin-top: 1.5em;
+            margin-bottom: 0.7em;
+        }
+
+        .article-content h1:first-child {
+            margin-top: 0;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-left: 1.5em;
+            margin-bottom: 1.2em;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5em;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--blockquote-border);
+            background-color: var(--blockquote-bg);
+            padding: 15px 20px;
+            margin: 1.5em 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            background-color: var(--code-bg);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .article-content pre {
+            background-color: var(--code-bg);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1.5em;
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+
+        /* Further Readings and References */
+        .further-reading, .references {
+            margin-top: 30px;
+        }
+
+        .further-reading h3, .references h3 {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .further-reading ul, .references ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .further-reading li, .references li {
+            margin-bottom: 8px;
+        }
+
+        .further-reading a, .references a {
+            /* Customize the link styles as needed */
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%; /* Make table span full width */
+            border-collapse: collapse;  /* Remove spacing between borders */
+            margin-top: 1.5em;  /* Space above the table */
+            margin-bottom: 1.5em; /* Space below the table */
+        }
+
+        th, td {
+            border: 1px solid var(--border-color); /* Add borders to cells */
+            padding: 10px; /* Add padding inside cells */
+            text-align: left; /* Align text to the left by default */
+        }
+
+        th {
+            background-color: var(--bg-card); /* Light background for headers */
+            font-weight: 600; /* Bold header text */
+        }
+
+        /* Optional: Zebra striping for readability */
+        tbody tr:nth-child(even) {
+            background-color: var(--bg-secondary);
+        }
+
+
+        /* Footer - Same as index.html and articles.html */
+        footer {
+            margin-top: 70px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* Responsive - Same as index.html and articles.html */
+        @media (max-width: 700px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            body {
+                padding: 20px 15px;
+            }
+
+            .article-list {
+                grid-template-columns: 1fr;
+            }
+
+            .markdown-content {
+                padding: 20px 15px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Font imports - Same as index.html and articles.html */
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap');
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <div class="site-title">
+            <h1>The Delta Donut</h1>
+
+            <p>My personal page for uploading everything data and dollars. I try to deconstruct derivatives, one smart
+                article a time. I also post articles probability related or more general finance. </p>
+            <p>Enjoy!</p>
+        </div>
+
+        <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon light-icon" id="lightIcon"></span>
+            <span class="theme-icon dark-icon" id="darkIcon" style="display: none;"></span>
+            <span id="themeText">Dark Mode</span>
+        </button>
+
+        <nav>
+        </nav>
+    </header>
+
+    <main>
+        <article class="article-content">
+            <h1>Breaking Down the Black-Scholes-Merton Model Assumptions</h1>
+            <p>Let's break down the issues with the Black-Scholes-Merton (BSM) model's assumptions, but before that
+            I will be assuming that you know the following. If you don't then here are links to the prerequisites:</p>
+
+            <h3>Prerequisites</h3>
+            <ul>
+                <li><a href="">Introduction to the Black-Scholes</a></li>
+                <li><a href="#">Option Greeks: A Deep Dive</a></li>
+                <li><a href="#">The Math Behind BSM</a></li>
+                <li><a href="#">Popular Math Notations in Finance</a></li>
+                <li><a href="#">Volatility: A Primer</a></li>
+            </ul>
+            <h2>I. Returns being Log-Normally Distributed</h2>
+
+            <p><b>What it means in BSM:</b> The model assumes that the percentage changes (returns) in the underlying asset's price, over a short period, follow a normal distribution. Mathematically, this translates to the price itself following a log-normal distribution. This means the price is always positive (since the exponential of a normal variable is always positive) and that large upward movements are more likely than equally large downward movements.</p>
+
+            <h3>Why it's a problem:</h3>
+
+            <ul>
+                <li><b>Fat Tails (Kurtosis):</b> Real-world financial data often exhibits "fat tails" meaning that extreme price movements (large gains or losses) happen more frequently than predicted by a normal distribution. BSM underestimates the probability of large price swings. This is very important for options pricing, as options benefit (or suffer) disproportionately from big moves.</li>
+                <li><b>Skewness:</b> Actual returns are often skewed, meaning the distribution is not symmetrical. For example, a distribution might have a longer tail on the negative side (more frequent large losses). BSM assumes a symmetrical distribution.</li>
+                <li><b>Market Crashes/Jumps:</b> The BSM model doesn't adequately account for sudden jumps in price, often caused by unexpected news or events. A log-normal distribution assumes price movements are continuous and gradual.</li>
+            </ul>
+
+            <h2>II. Volatility being Constant</h2>
+
+            <p><b>What it means in BSM:</b> The model assumes the volatility of the underlying asset (the standard deviation of its returns) remains constant over the entire life of the option.</p>
+
+            <h3>Why it's a problem:</h3>
+
+            <ul>
+                <li><b>Volatility Smile/Skew:</b> In reality, implied volatility (the volatility implied by market option prices) varies depending on the strike price of the option. When you plot implied volatility against strike price, you often see a U-shaped "smile" or a slanted "skew." This contradicts the BSM assumption of a single, constant volatility for all options on the same underlying asset with the same expiration date.</li>
+                <li><b>Volatility Clustering:</b> Volatility tends to cluster. Periods of high volatility are often followed by periods of high volatility, and periods of low volatility by periods of low volatility. BSM doesn't capture this time-varying nature of volatility.</li>
+                <li><b>Volatility as a Function of Price:</b> Volatility sometimes moves inversely with price. When prices fall quickly, volatility often rises (panic selling).</li>
+            </ul>
+
+            <h2>III. Having a Closed-Form Solution</h2>
+
+            <p><b>What it means in BSM:</b> The BSM model provides a direct formula (a closed-form solution) to calculate the theoretical price of an option. You simply plug in the inputs (stock price, strike price, time to expiration, risk-free rate, volatility) and get the option price.</p>
+
+            <p>The Black-Scholes formula is as follows:</p>
+
+            $$
+            \begin{aligned}
+            C &= S_0 N(d_1) - K e^{-rT} N(d_2) \\
+            \text{where: } \\
+            d_1 &= \frac{\ln\left(\frac{S_0}{K}\right) + \left(r + \frac{\sigma^2}{2}\right)T}{\sigma\sqrt{T}} \\
+            d_2 &= d_1 - \sigma\sqrt{T}
+            \end{aligned}
+            $$
+
+             <p>Where:</p>
+
+             <ul>
+                <li>\(C\) = Call option price</li>
+                <li>\(S_0\) = Current stock price</li>
+                <li>\(K\) = Strike price</li>
+                <li>\(r\) = Risk-free interest rate</li>
+                <li>\(T\) = Time to expiration</li>
+                <li>\(N(x)\) = Cumulative standard normal distribution function</li>
+                <li>\(\sigma\) = Volatility of the stock</li>
+            </ul>
+
+            <h3>Why it's related to the other problems:</h3>
+
+            <p>While having a closed-form solution is computationally efficient, it's a consequence of the simplifying assumptions. If you try to relax those assumptions (e.g., allow for stochastic volatility, jumps in the price process), you generally lose the closed-form solution. You then have to rely on numerical methods (e.g., Monte Carlo simulations, binomial trees) to approximate the option price, which are more computationally intensive. The desire for a simple, easy-to-use formula forced the model to make unrealistic assumptions.</p>
+
+            <h2>IV. Assuming Events are Independent</h2>
+
+            <p><b>What it means in BSM:</b> The model implicitly assumes that price movements in the underlying asset are independent of each other. The past price history has no bearing on future price movements, beyond its impact on estimated volatility.</p>
+
+            <h3>Why it's a problem:</h3>
+
+            <ul>
+                <li><b>Correlations:</b> Financial markets are interconnected. The price of one asset can be affected by the price of other assets or by broader market trends. The BSM model doesn't account for these correlations.</li>
+                <li><b>Mean Reversion:</b> Some assets exhibit mean reversion, meaning that prices tend to revert to their average levels over time. This violates the independence assumption.</li>
+                <li><b>Market Psychology:</b> Human behavior plays a role in markets. Sentiment, herd behavior, and other psychological factors can lead to dependencies in price movements.</li>
+            </ul>
+
+            <h2>V. In Summary: Why These Assumptions Matter</h2>
+
+            <p>The flawed assumptions of the BSM model mean that:</p>
+
+            <ul>
+                <li>Option prices calculated using BSM can be inaccurate, particularly for options that are far out-of-the-money (very high or very low strike prices). These options are more sensitive to the "fat tails" problem.</li>
+                <li>Hedging strategies based on BSM may not be as effective in practice, especially during periods of high volatility or market stress. The hedge ratios (delta, gamma, etc.) calculated by the model are based on the constant volatility assumption, and if volatility changes unexpectedly, the hedges can become ineffective.</li>
+                <li>Risk management decisions based solely on BSM can underestimate the true level of risk. The model doesn't capture the full range of possible outcomes, particularly the rare but potentially devastating extreme events.</li>
+            </ul>
+
+            <h2>VI. What's Used Instead?</h2>
+
+            <p>Because of these limitations, practitioners have developed more sophisticated models that try to address these issues, including:</p>
+
+            <ul>
+                <li><b>Stochastic Volatility Models (Heston model, SABR model):</b> These models allow volatility to vary randomly over time.</li>
+                <li><b>Jump Diffusion Models (Merton jump-diffusion model, Kou model):</b> These models incorporate the possibility of sudden jumps in asset prices.</li>
+                <li><b>Local Volatility Models:</b> These models allow volatility to be a function of both time and the underlying asset's price.</li>
+                <li><b>Implied Volatility Surfaces:</b> Rather than relying on a single volatility input, using the entire implied volatility surface (as a function of strike and maturity) to price and hedge options.</li>
+                <li><b>Numerical Methods (Monte Carlo Simulation, Binomial Trees):</b> Used when closed-form solutions are unavailable.</li>
+            </ul>
+
+            <p>While BSM has its limitations, it is still a valuable tool for understanding options pricing and hedging, and it serves as a foundational model for more advanced techniques. It's crucial to be aware of its shortcomings and to use it judiciously.</p>
+        </article>
+
+        <section class="further-reading">
+            <h3>Further Readings</h3>
+            <ul>
+                <li><a href="https://www.wiley.com/en-us/The+Complete+Guide+to+Option+Pricing+Formulas%2C+2nd+Edition-p-9781118022032">The Complete Guide to Option Pricing Formulas (2nd Edition)</a></li>
+                <li><a href="https://www.amazon.com/Volatility-Trading-Euan-Sinclair/dp/1905641755">Volatility Trading by Euan Sinclair</a></li>
+            </ul>
+        </section>
+
+        <section class="references">
+            <h3>References</h3>
+            <ul>
+                <li>Hull, J.C. *Options, Futures, and Other Derivatives*. Pearson Education, 2018.</li>
+                <li>Black, F., & Scholes, M. (1973). The Pricing of Options and Corporate Liabilities. *Journal of Political Economy*, *81*(3), 637-654.</li>
+                <li>Merton, R. C. (1973). Theory of Rational Option Pricing. *The Bell Journal of Economics and Management Science*, *4*(1), 141-183.</li>
+            </ul>
+        </section>
+    </main>
+
+
+    <script>
+        // Theme toggling functionality - Same as index.html and articles.html
+        const themeToggle = document.getElementById('themeToggle');
+        const themeText = document.getElementById('themeText');
+        const lightIcon = document.getElementById('lightIcon');
+        const darkIcon = document.getElementById('darkIcon');
+        const htmlElement = document.documentElement;
+
+        // Check for saved theme preference - Same as index.html and articles.html
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            applyDarkTheme();
+        }
+
+        // Theme toggle event listener - Same as index.html and articles.html
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark-theme')) {
+                applyLightTheme();
+            } else {
+                applyDarkTheme();
+            }
+        });
+
+        function applyDarkTheme() {
+            htmlElement.classList.add('dark-theme');
+            themeText.textContent = 'Light Mode';
+            lightIcon.style.display = 'none';
+            darkIcon.style.display = 'block';
+            localStorage.setItem('theme', 'dark');
+        }
+
+        function applyLightTheme() {
+            htmlElement.classList.remove('dark-theme');
+            themeText.textContent = 'Dark Mode';
+            lightIcon.style.display = 'block';
+            darkIcon.style.display = 'none';
+            localStorage.setItem('theme', 'light');
+        }
+    </script>
+</body>
+</html>

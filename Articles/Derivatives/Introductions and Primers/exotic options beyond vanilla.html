@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" class="light-theme" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Delta Donut - Exotic Options: Beyond Vanilla</title>
+    <script src="../../../theme-init.js"></script>
+    <style>
+        /*  Include the ENTIRE CSS from your articles.html and main index.html file here to ensure consistent styling */
+        /*  Theme Variables - Same as index.html and articles.html */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fc;
+            --bg-card: #f1f3f9;
+            --text-primary: #333333;
+            --text-secondary: #5a6a7e;
+            --text-muted: #64748b;
+            --accent-primary: #8a4baf;
+            --accent-secondary: #a56cc1;
+            --accent-light: #eee4f4;
+            --border-color: #eaeef2;
+            --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --tag-bg: #f1e8fa;
+            --tag-color: #7e3bad;
+            --code-bg: #f4f0f9;
+            --blockquote-bg: #f9f6fc;
+            --blockquote-border: #d8c6e8;
+        }
+
+        .dark-theme {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --bg-card: #222a42;
+            --text-primary: #e6e6fa;
+            --text-secondary: #b8c1cf;
+            --text-muted: #949db0;
+            --accent-primary: #bb86fc;
+            --accent-secondary: #9d65d0;
+            --accent-light: #2d2040;
+            --border-color: #31375c;
+            --card-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            --tag-bg: #372a50;
+            --tag-color: #c39fec;
+            --code-bg: #2a2240;
+            --blockquote-bg: #272138;
+            --blockquote-border: #6a4a93;
+        }
+
+        /* Base Styles - Same as index.html and articles.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            transition: all 0.8s ease;
+        }
+
+        /* Typography - Same as index.html and articles.html */
+        h1, h2, h3, h4 {
+            font-family: 'Fraunces', 'Georgia', serif;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--text-primary);
+            margin-bottom: 0.8em;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px; /* Use current value or adjust */
+            height: 3px;
+            background-color: var(--accent-primary);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.8s ease;
+        }
+
+        a:hover {
+            color: var(--accent-secondary);
+            text-decoration: underline;
+        }
+
+        /* Header - Same as index.html and articles.html */
+        header {
+            margin-bottom: 50px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .site-title {
+            flex: 1;
+        }
+
+        .site-title p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        /* Navigation - Same as index.html and articles.html */
+        nav {
+            margin-top: 25px;
+            width: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.8s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent-primary);
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-primary);
+            transition: width 0.8s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Theme Toggle - Same as index.html and articles.html */
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: background-color 0.8s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--bg-card);
+        }
+
+        .theme-toggle span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .theme-icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+
+        .light-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238a4baf'%3E%3Cpath d='M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z'%3E%3C/path%3E%3C/svg%3E");
+        }
+
+        .dark-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23bb86fc'%3E%3Cpath d='M10 6C10 10.4183 13.5817 14 18 14C19.4386 14 20.7885 13.6203 21.9549 12.9556C21.4738 18.0289 17.1692 22 12 22C6.47715 22 2 17.5228 2 12C2 6.83082 5.97106 2.5262 11.0444 2.04506C10.3797 3.21152 10 4.56142 10 6ZM4 12C4 16.4183 7.58172 20 12 20C14.9654 20 17.5757 18.3788 18.9571 15.9546C18.6407 15.9848 18.3214 16 18 16C12.4772 16 8 11.5228 8 6C8 5.67863 8.01524 5.35933 8.04536 5.04293C5.62119 6.42426 4 9.03458 4 12Z'%3E%3C/path%3E%3C/svg%3E");
+        }
+
+        /* Main content - Same as index.html and articles.html */
+        main {
+            min-height: 70vh;
+        }
+
+        /* Markdown content styles - For the main article content */
+        .article-content {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .article-content h1,
+        .article-content h2,
+        .article-content h3,
+        .article-content h4 {
+            margin-top: 1.5em;
+            margin-bottom: 0.7em;
+        }
+
+        .article-content h1:first-child {
+            margin-top: 0;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-left: 1.5em;
+            margin-bottom: 1.2em;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5em;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--blockquote-border);
+            background-color: var(--blockquote-bg);
+            padding: 15px 20px;
+            margin: 1.5em 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            background-color: var(--code-bg);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .article-content pre {
+            background-color: var(--code-bg);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1.5em;
+        }
+
+        .article-content pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 1.5em 0;
+        }
+
+        /* Further Readings and References */
+        .further-reading, .references {
+            margin-top: 30px;
+        }
+
+        .further-reading h3, .references h3 {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .further-reading ul, .references ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .further-reading li, .references li {
+            margin-bottom: 8px;
+        }
+
+        .further-reading a, .references a {
+            /* Customize the link styles as needed */
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%; /* Make table span full width */
+            border-collapse: collapse;  /* Remove spacing between borders */
+            margin-top: 1.5em;  /* Space above the table */
+            margin-bottom: 1.5em; /* Space below the table */
+        }
+
+        th, td {
+            border: 1px solid var(--border-color); /* Add borders to cells */
+            padding: 10px; /* Add padding inside cells */
+            text-align: left; /* Align text to the left by default */
+        }
+
+        th {
+            background-color: var(--bg-card); /* Light background for headers */
+            font-weight: 600; /* Bold header text */
+        }
+
+        /* Optional: Zebra striping for readability */
+        tbody tr:nth-child(even) {
+            background-color: var(--bg-secondary);
+        }
+
+
+        /* Footer - Same as index.html and articles.html */
+        footer {
+            margin-top: 70px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* Responsive - Same as index.html and articles.html */
+        @media (max-width: 700px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            body {
+                padding: 20px 15px;
+            }
+
+            .article-list {
+                grid-template-columns: 1fr;
+            }
+
+            .markdown-content {
+                padding: 20px 15px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Font imports - Same as index.html and articles.html */
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <div class="site-title">
+            <h1>The Delta Donut</h1>
+
+            <p>My personal page for uploading everything data and dollars. I try to deconstruct derivatives, one smart
+                article a time. I also post articles probability related or more general finance. </p>
+            <p>Enjoy!</p>
+        </div>
+        <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon light-icon" id="lightIcon"></span>
+            <span class="theme-icon dark-icon" id="darkIcon" style="display: none;"></span>
+            <span id="themeText">Dark Mode</span>
+        </button>
+
+        <nav>
+        </nav>
+    </header>
+
+    <main>
+        <article class="article-content">
+            <h1>Exotic Options: Beyond Vanilla</h1>
+            <p>This is an introduction to exotic options. I assume you understand vanilla options, understand how they're priced
+            and how the different greeks affect both types of contracts.</p>
+
+            <h3>Prerequisites</h3>
+            <ul>
+                <li><a href="#">What are Financial Derivatives?</a></li>
+                <li><a href="#">Option Greeks: A Deep Dive</a></li>
+                <li><a href="#">Vanilla Options: Pricing</a></li>
+                <li><a href="#">Vanilla Options: Greeks</a></li>
+                <li><a href="#">Volatility: A Primer</a></li>
+            </ul>
+
+
+            <h2>Introduction</h2>
+            <p>Exotic options are a powerful suite of financial instruments that go beyond the standard call and put options (vanilla options). They offer sophisticated investors and risk managers customized solutions for managing and exploiting market risks and opportunities. This article delves deep into exotic options, exploring their diverse types, unique characteristics, and applications, while highlighting the key differences from vanilla options.</p>
+
+            <h2>Why Use Exotic Options?</h2>
+            <ul>
+                <li><b>Customized Risk Management:</b> Tailored to meet specific needs.</li>
+                <li><b>Cost Efficiency:</b> Can provide similar exposures to vanilla options at a lower cost.</li>
+                <li><b>Exploiting Market Views:</b> Express complex views on volatility, correlation, and price movements.</li>
+                <li><b>Structured Products:</b> Building blocks for customized investment solutions.</li>
+            </ul>
+
+            <h2>Key Differences from Vanilla Options</h2>
+            <ul>
+                <li><b>Payoff Structure:</b> Vanilla options have a simple payoff based on the underlying asset price at expiration. Exotic options have more complex payoffs.</li>
+                <li><b>Path Dependency:</b> Many exotic options are path-dependent; their payoff depends on the path the underlying asset price takes over the option's life.</li>
+                <li><b>Complexity:</b> Exotic options are generally more complex to price, hedge, and manage.</li>
+                <li><b>Liquidity:</b> Exotic options typically have lower liquidity than vanilla options.</li>
+            </ul>
+
+            <h2>Exotic Option Deep Dive</h2>
+
+            <h3>1. Barrier Options</h3>
+            <p>Barrier options are activated ("knock-in") or deactivated ("knock-out") if the underlying asset price reaches a pre-determined barrier level. They are a popular choice for managing specific views and cost reduction strategies.</p>
+
+            <ul>
+                <li><b>Types:</b>
+                    <ul>
+                        <li><b>Knock-In Options:</b> The option only comes into existence if the barrier is hit.
+                            <ul>
+                                <li>Up-and-In Call/Put</li>
+                                <li>Down-and-In Call/Put</li>
+                            </ul>
+                        </li>
+                        <li><b>Knock-Out Options:</b> The option ceases to exist if the barrier is hit.
+                            <ul>
+                                <li>Up-and-Out Call/Put</li>
+                                <li>Down-and-Out Call/Put</li>
+                            </ul>
+                        </li>
+                        <li><b>Double Barrier Options:</b> Have both an upper and a lower barrier. The option can be knocked in or knocked out based on either barrier being hit.</li>
+                    </ul>
+                </li>
+                <li><b>Use Cases:</b>
+                    <ul>
+                        <li><b>Cost Reduction:</b> Knock-out options are cheaper than vanilla options.</li>
+                        <li><b>Specific Views:</b> Express a view that the asset price will stay within a certain range.</li>
+                        <li><b>Hedging Strategies:</b> Protect against downside risk while limiting the cost.</li>
+                    </ul>
+                </li>
+                <li><b>Example:</b> An investor buys an up-and-out call option with a barrier at $150. This option would be cheaper than a vanilla call option, but it would be cancelled if the stock price reaches $150.</li>
+                <li><b>Pricing and Hedge Considerations:</b> Barrier options require more sophisticated pricing models and make it hard to continuously hedge.</li>
+            </ul>
+
+            <h3>2. Asian Options (Average Price Options)</h3>
+            <p>The payoff of an Asian option is based on the average price of the underlying asset over a specified period, rather than the price at expiration.</p>
+
+            <ul>
+                <li><b>Types:</b>
+                    <ul>
+                        <li><b>Average Rate Options:</b> The payoff is based on the difference between the average price and the strike price.
+                            <ul>
+                                <li>Average Price Call: Payoff = max(Average Price - Strike Price, 0)</li>
+                                <li>Average Price Put: Payoff = max(Strike Price - Average Price, 0)</li>
+                            </ul>
+                        </li>
+                        <li><b>Average Strike Options:</b> The strike price is the average price over a period.
+                            <ul>
+                                <li>Average Strike Call: Payoff = max(Final Price - Average Price, 0)</li>
+                                <li>Average Strike Put: Payoff = max(Average Price - Final Price, 0)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><b>Use Cases:</b>
+                    <ul>
+                        <li><b>Reducing Volatility:</b> Using an average price reduces the impact of price spikes.</li>
+                        <li><b>Hedging Commodity Risk:</b> For companies that regularly buy or sell commodities.</li>
+                        <li><b>Illiquid Assets:</b> Can be used on assets with low trading volume.</li>
+                    </ul>
+                </li>
+                <li><b>Example:</b> A company that imports oil regularly can use an Asian option to hedge its exposure to oil price fluctuations.</li>
+                <li><b>Pricing Considerations:</b> Monte Carlo simulation is often used to estimate their value.</li>
+                <li><b>Unique Aspect:</b> They lower the volatility by averaging over time.</li>
+            </ul>
+
+            <h3>3. Cliquet Options (Ladder Options, Ratchet Options)</h3>
+            <p>A Cliquet option is a series of forward-starting options with reset strike prices, offering downside protection with upside potential.</p>
+
+            <ul>
+                <li><b>How it Works:</b>
+                    <ul>
+                        <li>The option's life is divided into periods.</li>
+                        <li>At the beginning of each period, the strike price is reset to the current asset price.</li>
+                        <li>The payoff for each period is capped at a maximum gain.</li>
+                        <li>There is often a floor that sets the minimum overall payoff.</li>
+                    </ul>
+                </li>
+                <li><b>Use Cases:</b>
+                    <ul>
+                        <li><b>Structured Products:</b> Provide investors with downside protection and market gain participation.</li>
+                        <li><b>Employee Stock Options:</b> Alternative to traditional stock options, offering downside protection.</li>
+                    </ul>
+                </li>
+                <li><b>Example:</b> A Cliquet option with a strike price resetting quarterly. If the asset price rises 10% in the first quarter, the strike price resets, and the investor locks in the gain.</li>
+                <li><b>Pricing Considerations:</b> Often priced using Monte Carlo simulation.</li>
+                <li><b>Unique Aspect:</b> Series of future options bundled together.</li>
+            </ul>
+
+            <h3>4. Variance Swaps</h3>
+            <p>A contract that pays the difference between the realized variance of an asset and a fixed strike variance over a specified period.</p>
+
+            <ul>
+                <li><b>Variance vs. Volatility:</b> Variance is the square of volatility. Variance swaps are easier to hedge than volatility swaps.</li>
+                <li><b>How it Works:</b> One party pays a fixed variance rate, and the other pays the realized variance. Payoff is typically cash-settled.</li>
+                <li><b>Use Cases:</b>
+                    <ul>
+                        <li><b>Volatility Trading:</b> Express a view on future realized volatility.</li>
+                        <li><b>Hedging Volatility Exposure:</b> Protect against increases in volatility.</li>
+                    </ul>
+                </li>
+                <li><b>Example:</b> A hedge fund believes volatility will increase and buys a variance swap. If realized variance is higher than the fixed rate, the fund profits.</li>
+                <li><b>Pricing and Hedging:</b> Variance swaps can be replicated using vanilla options, but this can be expensive and require significant knowledge.</li>
+                <li><b>Unique Aspect:</b> Direct exposure to variance, a key measure of risk.</li>
+            </ul>
+
+            <h3>5. Correlation Swaps</h3>
+            <p>A contract that pays based on the realized correlation between multiple assets.</p>
+
+            <ul>
+                <li><b>How it Works:</b> One party pays a fixed correlation, and the other pays the realized correlation. Payoff is cash-settled.</li>
+                <li><b>Use Cases:</b>
+                    <ul>
+                        <li><b>Trading Correlation Views:</b> Express a view on asset correlation.</li>
+                        <li><b>Hedging Correlation Risk:</b> Protect against changes in correlation.</li>
+                        <li><b>Structured Products:</b> Provide exposure to correlation.</li>
+                    </ul>
+                </li>
+                <li><b>Example:</b> A hedge fund believes the correlation between two stocks will increase and buys a correlation swap.</li>
+                <li><b>Pricing and Hedging:</b> Complex to price and hedge, often requiring statistical models.</li>
+                <li><b>Unique Aspect:</b> Direct exposure to correlation, a key driver of portfolio risk and diversification.</li>
+            </ul>
+
+            <h2>Adapting Vanilla-Like Strategies</h2>
+            <p>While the names of vanilla option strategies (butterflies, condors, spreads) might be used as a conceptual starting point, the actual implementation on exotic options requires:</p>
+            <ul>
+                <li>A deep understanding of the specific exotic option's characteristics.</li>
+                <li>Sophisticated modeling and simulation tools.</li>
+                <li>Careful risk management.</li>
+            </ul>
+
+            <h3>Examples:</h3>
+            <ul>
+                <li><b>Barrier Options:</b>
+                    <ul>
+                        <li><i>Butterfly-Like Strategy:</i> Combining vanilla and barrier options to create a payoff profile resembling a butterfly. This strategy is used to limit upside risk.</li>
+                    </ul>
+                </li>
+                <li><b>Asian Options:</b>
+                    <ul>
+                        <li><i>Calendar Spread-Like Strategy:</i> Used to express a view on how the average price is expected to change over time.</li>
+                    </ul>
+                </li>
+                <li><b>Variance Swaps:</b>
+                    <ul>
+                        <li><i>Variance Butterfly:</i> Created by combining variance swaps with different strike variances. This expresses a view on the expected distribution of realized variance.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>In many cases, it may be more effective to design new strategies specifically tailored to the exotic option, rather than trying to force-fit vanilla strategies.</p>
+
+            <h2>More Exotic Options</h2>
+            <p>Here are some other exotic options that you may encounter:</p>
+
+            <ul>
+              <li>Chooser Options</li>
+              <li>Compound Options</li>
+              <li>Extendable Options</li>
+              <li>Forward Start Options</li>
+              <li>Passport Options</li>
+            </ul>
+
+            <h2>Factors Driving the Popularity of Exotic Options</h2>
+
+            <ul>
+                <li><b>Sophistication of Investors:</b> Increased understanding of complex financial instruments.</li>
+                <li><b>Development of Quantitative Techniques:</b> Advanced models for pricing and hedging.</li>
+                <li><b>Desire for Customization:</b> Need for tailored risk management and investment solutions.</li>
+            </ul>
+
+            <p>Exotic options offer powerful tools for sophisticated investors and risk managers, but they require a deep understanding of their characteristics and risks.</p>
+        </article>
+
+        <section class="further-reading">
+            <h3>Further Readings</h3>
+            <ul>
+                <li><a href="#">Understanding Exotic Options</a></li>
+                <li><a href="#">Advanced Option Strategies</a></li>
+                <li><a href="#">Financial Derivatives Explained</a></li>
+            </ul>
+        </section>
+
+        <section class="references">
+            <h3>References</h3>
+            <ul>
+                <li>Fabozzi, F. J. (2005). *Fixed Income Analysis*. John Wiley & Sons.</li>
+                <li>Hull, J. C. (2018). *Options, Futures, and Other Derivatives*. Pearson.</li>
+                <li>Ross, S. A., Westerfield, R. W., & Jaffe, J. (2012). *Corporate Finance*. McGraw-Hill/Irwin.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        // Theme toggling functionality - Same as index.html and articles.html
+        const themeToggle = document.getElementById('themeToggle');
+        const themeText = document.getElementById('themeText');
+        const lightIcon = document.getElementById('lightIcon');
+        const darkIcon = document.getElementById('darkIcon');
+        const htmlElement = document.documentElement;
+
+        // Check for saved theme preference - Same as index.html and articles.html
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            applyDarkTheme();
+        }
+
+        // Theme toggle event listener - Same as index.html and articles.html
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark-theme')) {
+                applyLightTheme();
+            } else {
+                applyDarkTheme();
+            }
+        });
+
+        function applyDarkTheme() {
+            htmlElement.classList.add('dark-theme');
+            themeText.textContent = 'Light Mode';
+            lightIcon.style.display = 'none';
+            darkIcon.style.display = 'block';
+            localStorage.setItem('theme', 'dark');
+        }
+
+        function applyLightTheme() {
+            htmlElement.classList.remove('dark-theme');
+            themeText.textContent = 'Dark Mode';
+            lightIcon.style.display = 'block';
+            darkIcon.style.display = 'none';
+            localStorage.setItem('theme', 'light');
+        }
+    </script>
+</body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Delta Donut - BSM Model Assumptions</title>
-    <script src="../../theme-init.js"></script>
+    <script src="../../../theme-init.js"></script>
     <style>
         /*  Include the ENTIRE CSS from your articles.html and main index.html file here to ensure consistent styling */
         /*  Theme Variables - Same as index.html and articles.html */
@@ -376,6 +376,15 @@
         /* Font imports - Same as index.html and articles.html */
         @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap');
     </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
 </head>
 <body>
     <header>
@@ -407,10 +416,17 @@
     <main>
         <article class="article-content">
             <h1>Breaking Down the Black-Scholes-Merton Model Assumptions</h1>
-            <p>Published in Your Research Portal, 2024</p>
+            <p>Let's break down the issues with the Black-Scholes-Merton (BSM) model's assumptions, but before that
+            I will be assuming that you know the following. If you don't then here are links to the prerequisites:</p>
 
-            <p>Let's break down the issues with the Black-Scholes-Merton (BSM) model's assumptions:</p>
-
+            <h3>Prerequisites</h3>
+            <ul>
+                <li><a href="">Introduction to the Black-Scholes</a></li>
+                <li><a href="#">Option Greeks: A Deep Dive</a></li>
+                <li><a href="#">The Math Behind BSM</a></li>
+                <li><a href="#">Popular Math Notations in Finance</a></li>
+                <li><a href="#">Volatility: A Primer</a></li>
+            </ul>
             <h2>I. Returns being Log-Normally Distributed</h2>
 
             <p><b>What it means in BSM:</b> The model assumes that the percentage changes (returns) in the underlying asset's price, over a short period, follow a normal distribution. Mathematically, this translates to the price itself following a log-normal distribution. This means the price is always positive (since the exponential of a normal variable is always positive) and that large upward movements are more likely than equally large downward movements.</p>
@@ -438,6 +454,29 @@
             <h2>III. Having a Closed-Form Solution</h2>
 
             <p><b>What it means in BSM:</b> The BSM model provides a direct formula (a closed-form solution) to calculate the theoretical price of an option. You simply plug in the inputs (stock price, strike price, time to expiration, risk-free rate, volatility) and get the option price.</p>
+
+            <p>The Black-Scholes formula is as follows:</p>
+
+            $$
+            \begin{aligned}
+            C &= S_0 N(d_1) - K e^{-rT} N(d_2) \\
+            \text{where: } \\
+            d_1 &= \frac{\ln\left(\frac{S_0}{K}\right) + \left(r + \frac{\sigma^2}{2}\right)T}{\sigma\sqrt{T}} \\
+            d_2 &= d_1 - \sigma\sqrt{T}
+            \end{aligned}
+            $$
+
+             <p>Where:</p>
+
+             <ul>
+                <li>\(C\) = Call option price</li>
+                <li>\(S_0\) = Current stock price</li>
+                <li>\(K\) = Strike price</li>
+                <li>\(r\) = Risk-free interest rate</li>
+                <li>\(T\) = Time to expiration</li>
+                <li>\(N(x)\) = Cumulative standard normal distribution function</li>
+                <li>\(\sigma\) = Volatility of the stock</li>
+            </ul>
 
             <h3>Why it's related to the other problems:</h3>
 
@@ -500,10 +539,6 @@
 
     <footer>
         <p>&copy; 2024 The Delta Donut</p>
-        <p>
-            <span>
-                <a href="../../rss.xml" target="_blank" aria-label="RSS Feed"><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M6.18 15.64A2.18 2.18 0 0 1 4 13.46A2.18 2.18 0 0 1 6.18 11.28A2.18 2.18 0 0 1 8.36 13.46A2.18 2.18 0 0 1 6.18 15.64M4 4.44V6.56A15.56 15.56 0 0 1 19.56 22.16H17.44A13.32 13.32 0 0 0 4 8.88M4 10.76V12.88A11.08 11.08 0 0 1 15.08 22.16H12.96A8.84 8.84 0 0 0 4 14.04"/></svg></span>
-        </p>
     </footer>
 
     <script>
