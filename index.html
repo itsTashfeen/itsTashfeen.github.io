@@ -493,6 +493,88 @@
 
         /* Font imports */
         @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap');
+
+        /* Featured Research Section */
+        .featured-research {
+            margin-bottom: 50px;
+        }
+
+        .featured-research h2 {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-papers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .featured-paper {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.8s ease, box-shadow 0.8s ease;
+        }
+
+        .featured-paper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .featured-paper h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .featured-paper p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .featured-paper .paper-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .featured-paper .paper-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-paper .paper-tag {
+            background-color: var(--tag-bg);
+            color: var(--tag-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .featured-paper .paper-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.8s ease;
+        }
+
+        .featured-paper .paper-link:hover {
+            background-color: var(--accent-secondary);
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -582,47 +664,37 @@
             </div>
         </section>
 
-        <section class="featured">
+        <!-- Featured Research Section -->
+        <section class="featured-research">
             <h2>Featured Research</h2>
-            <div class="article-list">
-                <article class="article-card">
-                    <h3>Title of Your Research Paper</h3>
-                    <div class="article-meta">
-                        Published in Journal Name, March 2023
+            <div class="featured-papers">
+                <!-- Featured Paper 1 -->
+                <div class="featured-paper">
+                    <h3>Gamma Fragility in Modern Markets</h3>
+                    <p>An in-depth analysis of gamma exposure's impact on market stability and its implications for systemic risk. The paper explores how options market dynamics can amplify market movements.</p>
+                    <div class="paper-meta">
+                        <span>Published in Risk Analysis, 2023</span>
                     </div>
-                    <div class="article-excerpt">
-                        <p>
-                            This is a brief summary of your research paper. Explain the key findings and importance
-                            of this work in a way that makes it interesting to both experts and non-experts.
-                            Include enough detail to give readers a sense of what makes this research valuable.
-                        </p>
+                    <div class="paper-tags">
+                        <span class="paper-tag">Options Markets</span>
+                        <span class="paper-tag">Risk Management</span>
                     </div>
-                    <div class="tags">
-                        <span class="tag">Research Topic</span>
-                        <span class="tag">Methodology</span>
-                        <span class="tag">Field</span>
-                    </div>
-                    <a href="research/paper-title.html" class="read-more">Read Full Paper</a>
-                </article>
+                    <a href="DB/Research Papers/Gamma Fragility.pdf" class="paper-link">Read Paper</a>
+                </div>
 
-                <article class="article-card">
-                    <h3>Another Important Research Paper</h3>
-                    <div class="article-meta">
-                        Published in Journal Name, October 2022
+                <!-- Featured Paper 2 -->
+                <div class="featured-paper">
+                    <h3>Options Pricing via Fourier Transformation</h3>
+                    <p>A mathematical exploration of using Fourier transforms for efficient options pricing, particularly focusing on complex derivatives and exotic options where traditional methods may fall short.</p>
+                    <div class="paper-meta">
+                        <span>Published in Quantitative Finance, 2023</span>
                     </div>
-                    <div class="article-excerpt">
-                        <p>
-                            A concise description of this research project, highlighting its contribution
-                            to the field and why it matters. Focus on making complex ideas accessible
-                            while maintaining academic rigor.
-                        </p>
+                    <div class="paper-tags">
+                        <span class="paper-tag">Mathematical Finance</span>
+                        <span class="paper-tag">Options Pricing</span>
                     </div>
-                    <div class="tags">
-                        <span class="tag">Research Topic</span>
-                        <span class="tag">Field</span>
-                    </div>
-                    <a href="research/another-paper.html" class="read-more">Read Full Paper</a>
-                </article>
+                    <a href="DB/Research Papers/Options pricing using Fourier transformation.pdf" class="paper-link">Read Paper</a>
+                </div>
             </div>
         </section>
     </main>
