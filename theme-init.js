@@ -63,7 +63,6 @@
         <div class="links">
             <a href="mailto:replytashfeen@gmail.com">Email</a> |
             <a href="https://www.linkedin.com/in/tashfeenomran/">LinkedIn</a> |
-            <a href="https://twitter.com/OmranTashfeen">Twitter</a> |
             <a href="https://github.com/itsTashfeen">GitHub</a> |
         </div>
     `;
