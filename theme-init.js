@@ -19,6 +19,18 @@
     let pathPrefix = '';
     let homeURL = 'index.html';
 
+    // Add favicon dynamically
+    function addFavicon() {
+        const faviconLink = document.createElement('link');
+        faviconLink.rel = 'icon';
+        faviconLink.type = 'image/x-icon';
+        faviconLink.href = pathPrefix + 'Resources/Favicons/favicon.ico';
+        document.head.appendChild(faviconLink);
+    }
+
+    // Call the function to add favicon
+    addFavicon();
+
     // Determine path prefix based on location
     if (window.location.pathname.includes('/Articles/')) {
       pathPrefix = '../../../';
