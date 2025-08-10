@@ -5,17 +5,26 @@
     document.documentElement.classList.add('dark-theme');
   }
 
+  // --- Start of New Header Configuration ---
+  const headerConfig = {
+    title: 'The Delta Donut',
+    taglines: [
+      'My personal page for uploading everything data and dollars. I try to deconstruct derivatives, one smart article a time. I also post articles probability related or more general finance.',
+      'Cooking stuff will be up soon!'
+    ]
+  };
+  // --- End of New Header Configuration ---
+
   // Navigation links configuration in JSON format
   const navigationConfig = [
     { text: 'Home', href: 'index.html' },
     { text: 'Research', href: 'research.html' },
     { text: 'Articles', href: 'articles.html' },
-    { text: 'About', href: 'about.html' },
-    { text: 'Contact', href: 'contact.html' }
+    { text: 'About', href: 'about.html' }
   ];
 
   document.addEventListener('DOMContentLoaded', function() {
-    const siteTitle = document.querySelector('.site-title');
+    const header = document.querySelector('header'); // Target the header element
     let pathPrefix = '';
     let homeURL = 'index.html';
 
@@ -37,17 +46,34 @@
       homeURL = '../../../index.html';
     }
 
-    // Make the site title a link to the homepage
-    if (siteTitle) {
-      const link = document.createElement('a');
-      link.href = homeURL;
-      link.style.textDecoration = 'none';
-      link.style.color = 'inherit';
-      link.style.display = 'block';
-      link.innerHTML = siteTitle.innerHTML;
-      siteTitle.innerHTML = "";
-      siteTitle.appendChild(link);
+    // --- Start of Updated Header Injection ---
+    if (header) { // Check if a header element exists
+      // Create the site-title container
+      const siteTitleDiv = document.createElement('div');
+      siteTitleDiv.className = 'site-title';
+
+      // Create the main title (h1) as a link
+      const titleLink = document.createElement('a');
+      titleLink.href = homeURL;
+      titleLink.style.textDecoration = 'none';
+      titleLink.style.color = 'inherit';
+      const h1 = document.createElement('h1');
+      h1.textContent = headerConfig.title;
+      titleLink.appendChild(h1);
+      siteTitleDiv.appendChild(titleLink);
+
+      // Create and add the paragraphs for the taglines
+      headerConfig.taglines.forEach(taglineText => {
+        const p = document.createElement('p');
+        p.textContent = taglineText;
+        siteTitleDiv.appendChild(p);
+      });
+
+      // Add the new site-title div to the start of the header
+      header.prepend(siteTitleDiv);
     }
+    // --- End of Updated Header Injection ---
+
 
     // Generate and inject the navigation
     const nav = document.querySelector('nav');
@@ -70,7 +96,7 @@
     // Inject the footer
     const footerContent = `
         <div class="copyright">
-            © 2025 Tashfeen Omran. All rights reserved.
+            © 2025 Tashfeen Omran.
         </div>
         <div class="links">
             <a href="mailto:replytashfeen@gmail.com">Email</a> |
