@@ -9,7 +9,7 @@
   const headerConfig = {
     title: 'The Delta Donut',
     taglines: [
-      'My personal page for uploading everything data and dollars. I try to deconstruct derivatives, one smart article a time. I also post articles probability related or more general finance.',
+      'Personal online directory for all of my notes. ',
       'Cooking stuff will be up soon!'
     ]
   };
