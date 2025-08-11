@@ -19,7 +19,7 @@
   const navigationConfig = [
     { text: 'Home', href: 'index.html' },
     { text: 'Research', href: 'research.html' },
-    { text: 'Articles', href: 'articles.html' },
+    { text: 'Notes', href: 'notes.html' },
     { text: 'About', href: 'about.html' }
   ];
 
