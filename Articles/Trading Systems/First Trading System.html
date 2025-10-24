@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Delta Donut - Volatility Arbitrage: A Primer</title>
+    <title>Structured Notes: A Primer</title>
     <script src="../../../theme-init.js"></script>
     <style>
         /*  Include the ENTIRE CSS from your articles.html and main index.html file here to ensure consistent styling */
@@ -390,228 +390,261 @@
 
     <main>
         <article class="article-content">
-            <h1>Volatility Arbitrage: The Ultimate Primer</h1>
-            <p>Published in Your Research Portal, 2024</p>
+            <h1>My First Trading System</h1>
+            <p></p>
 
-            <h2>I. Core Concepts</h2>
 
-            <h3>What is Volatility Arbitrage?</h3>
-            <p>Volatility arbitrage seeks to profit from discrepancies in the pricing of volatility. It involves trading options and volatility-linked instruments based on the differences between:</p>
+            <h3>What are Structured Notes?</h3>
             <ul>
-                <li><b>Implied Volatility (IV):</b> The market's expectation of future volatility, derived from option prices.</li>
-                <li><b>Realized Volatility (RV):</b> The actual volatility of the underlying asset over a historical period.</li>
-                <li><b>Model-Based Forecasts:</b> Estimates of future volatility derived from statistical or machine learning models.</li>
-            </ul>
-            <p>The core principle is that volatility is not directly observable but is inferred or estimated. Different market participants often have varying views on volatility, creating opportunities for profit when these views are not accurately reflected in market prices.</p>
-
-            <h3>Implied Volatility (IV)</h3>
-            <p>Implied volatility represents the market's consensus view of an asset's future volatility, derived from the prices of options on that asset. It's a crucial input for option pricing models.</p>
-            <ul>
-                <li><b>Calculation:</b> IV is calculated by inputting the market price of an option into an option pricing model (such as Black-Scholes) and solving for the volatility parameter.</li>
-                <li><b>Quoting:</b> IV is typically quoted as an annualized percentage.</li>
-                <li><b>VIX Index:</b> The VIX index is a well-known market-implied view of the volatility of the S&P 500.</li>
+                <li>Debt instruments (notes) with embedded derivatives.</li>
+                <li>Issued by financial institutions (banks, broker-dealers).</li>
+                <li>Payoff linked to the performance of one or more underlying assets or indices.</li>
+                <li>Customized to meet specific investor needs.</li>
             </ul>
 
-            <h3>Realized Volatility (RV)</h3>
-            <p>Realized volatility (RV) measures the actual volatility of an asset over a historical period. It is calculated using historical price data.</p>
+            <h3>Why Invest in Structured Notes?</h3>
             <ul>
-                <li><b>Calculation Methods:</b>
-                    <ul>
-                        <li><b>Standard Deviation of Returns:</b> A common and straightforward method.</li>
-                        <li><b>Parkinson's Range Estimator:</b> Uses high and low prices over a period.</li>
-                        <li><b>Garman-Klass-Yang-Zhang Estimator:</b> A more sophisticated method that accounts for opening, closing, high, and low prices.</li>
-                    </ul>
-                </li>
-                <li><b>High-Frequency Data:</b> Calculating RV using intraday data provides a more accurate estimation of volatility.</li>
+                <li>Customization: Tailored exposure to specific asset classes, market views, and risk profiles.</li>
+                <li>Enhanced Yield: Potentially higher yields than traditional fixed-income investments (but with higher risk).</li>
+                <li>Downside Protection: Some structured notes offer limited downside protection.</li>
+                <li>Access to Complex Strategies: Access to strategies that may be difficult or expensive to implement directly.</li>
             </ul>
 
-            <h3>Volatility Surface</h3>
-            <p>The volatility surface is a 3D representation of implied volatility as a function of two variables: strike price and time to expiration. It provides a comprehensive view of how IV varies across different option characteristics.</p>
-
-            <h3>Volatility Skew</h3>
-            <p>Volatility skew refers to the difference in implied volatility between options with different strike prices but the same expiration date. In equity markets, it often manifests as out-of-the-money (OTM) puts having higher implied volatilities than OTM calls.</p>
+            <h3>Underlying Assets:</h3>
+            <p>Could be constructed by using two or more of the below</p>
             <ul>
-                <li><b>Factors Influencing Skew:</b>
-                    <ul>
-                        <li><b>"Fear Gauge":</b> The skew tends to widen during periods of market uncertainty or fear of significant price declines.</li>
-                        <li><b>Supply and Demand:</b> Heavy buying of OTM puts for hedging purposes can increase their IV, widening the skew.</li>
-                        <li><b>Institutional Hedging:</b> Large institutional investors buying puts can exacerbate the skew.</li>
-                        <li><b>Market Sentiment:</b> Bearish sentiment can lead to increased demand for puts, widening the skew.</li>
-                    </ul>
+                <li>Equities (individual stocks, indices)</li>
+                <li>Fixed Income (bonds, interest rates)</li>
+                <li>Commodities</li>
+                <li>Currencies (FX rates)</li>
+                <li>Alternative Investments (hedge funds, private equity)</li>
+                <li>Hybrids (combinations of the above)</li>
             </ul>
 
-            <h3>Volatility Smile</h3>
-            <p>The volatility smile is a graphical representation where implied volatility is lowest for at-the-money (ATM) options and increases for OTM options on both the call and put sides. While theoretically volatility would be consistent across all strike prices, the curve is often not a flat line. It can resemble a smile or a "smirk" (where the put side is more pronounced) especially in equity markets.</p>
+            <h3>Derivative Components:</h3>
             <ul>
-                <li><b>Factors Influencing Smile:</b>
-                    <ul>
-                        <li><b>Market Efficiency:</b> Smiles reflect market imperfections.</li>
-                        <li><b>Fat Tails:</b> The tendency for real-world asset returns to exhibit fat tails, meaning extreme events are more frequent than predicted by a normal distribution.</li>
-                        <li><b>Hedging Demand:</b> Increased demand for OTM options can drive up implied volatilities.</li>
-                    </ul>
+                <li>Options (vanilla and/or exotics)</li>
+                <li>Swaps (irs, cds, equity swaps)</li>
+                <li>Futures (commodity futures, index futures)</li>
+                <li>Forwards</li>
             </ul>
 
-            <h3>Volatility Term Structure</h3>
-            <p>The volatility term structure is the relationship between the implied volatility of options and their time to expiration.</p>
+            <h3>Key Building Blocks:</h3>
             <ul>
-                <li><b>Term Structure Shapes:</b>
-                    <ul>
-                        <li><b>Contango (Upward-Sloping):</b> Longer-dated options have higher IV than shorter-dated ones, often reflecting uncertainty about future events.</li>
-                        <li><b>Backwardation (Downward-Sloping):</b> Shorter-dated options have higher IV than longer-dated options, which can happen during market stress.</li>
-                        <li><b>Flat:</b> IV is roughly the same across all maturities.</li>
-                    </ul>
-                </li>
-                <li><b>Factors Influencing Term Structure:</b>
-                    <ul>
-                        <li><b>Event Risk:</b> Upcoming events (e.g., earnings announcements) can cause short-term volatility spikes.</li>
-                        <li><b>Market Sentiment:</b> Fear of near-term declines can lead to backwardation.</li>
-                        <li><b>Monetary Policy:</b> Changes in interest rates can impact the term structure.</li>
-                    </ul>
+                <li><a href="#">Zero-Coupon Bond: </a>The foundation of most structured notes. Provides the principal repayment at maturity.</li>
+                <li><a href="#">Options: </a>Used to generate potential upside exposure to the underlying asset.</li>
+                <ul>
+                    <li><a href="#">Barrier Options: </a>Used to create knock-in or knock-out features, affecting the payoff based on asset price levels.</li>
+                    <li><a href="#">Digital Options: </a>Pay a fixed amount if a certain condition is met.</li>
+                     <li><a href="#">Cliquet Options: </a>As discussed before, these reset at intervals.</li>
+                </ul>
+
             </ul>
 
-            <h2>II. Key Volatility Arbitrage Strategies</h2>
+            <h2>II. Common Types of Structured Notes</h2>
 
-            <h3>Variance Swap Arbitrage</h3>
-            <p><b>Concept:</b> Exploiting differences between the fixed variance swap rate and market expectations. </p>
+            <h3>Principal-Protected Notes (PPNs):</h3>
             <ul>
-                <li><b>How Variance Swaps Work:</b>
-                    <ul>
-                        <li><b>Variance Swap:</b> A forward contract on realized variance.</li>
-                        <li>One party pays a fixed rate, and the other pays realized variance.</li>
-                        <li>The payoff is cash-settled.</li>
-                    </ul>
-                </li>
-                <li><b>Strategy:</b>
-                    <ul>
-                        <li><b>Buy Variance Swap:</b> If realized variance is expected to be higher than the swap rate.</li>
-                        <li><b>Sell Variance Swap:</b> If realized variance is expected to be lower than the swap rate.</li>
-                    </ul>
-                </li>
-                <li><b>Hedging:</b> Often hedged dynamically with options or the underlying asset.</li>
-                <li><b>Challenges:</b> Variance swaps have lower liquidity than options, and require specialized knowledge.</li>
+                <li>Offer full or partial principal protection at maturity.</li>
+                <li>The return is linked to the performance of an underlying asset.</li>
+                <li>Typically use a zero-coupon bond to provide the principal protection and options to provide the upside exposure.</li>
+                <li>Example: A note that guarantees the return of principal at maturity, plus a percentage of the gains in the S&P 500 index.</li>
             </ul>
 
-            <h3>Static Option Replication of Variance</h3>
-            <p><b>Concept:</b> Create a synthetic variance swap using options.</p>
+            <h3>Equity-Linked Notes (ELNs):</h3>
             <ul>
-                <li><b>Process:</b> A variance swap can be theoretically replicated using a series of options and a log contract.</li>
-                <li><b>Advantages:</b> Potentially more liquid than direct variance swaps.</li>
-                <li><b>Disadvantages:</b> An approximation of variance, not perfect replication.</li>
+                <li>Payoff linked to the performance of a single stock or a basket of stocks.</li>
+                <li>Offer potential for higher returns than traditional fixed income, but with greater risk.</li>
+                <li>Can be customized with various features, such as caps, floors, and participation rates.</li>
+                <li>Example: A note that pays a fixed coupon plus a percentage of the appreciation in a specific technology stock, up to a certain cap.</li>
             </ul>
 
-            <h3>Volatility Skew Arbitrage</h3>
-            <p><b>Concept:</b> Capitalizing on mispricings in the volatility skew.</p>
+            <h3>Fixed Income-Linked Notes:</h3>
             <ul>
-                <li><b>Strategy:</b>
-                    <ul>
-                        <li><b>Long Skew:</b> (If you believe the skew will widen or stay wide) Buy OTM puts and sell OTM calls. Hedge to be delta-neutral.</li>
-                        <li><b>Short Skew:</b> (If you believe the skew will narrow) Sell OTM puts and buy OTM calls. Delta-hedge.</li>
-                    </ul>
-                </li>
-                <li><b>Considerations:</b> Careful hedging, managing risk.</li>
+                <li>Payoff linked to interest rates, inflation, or other fixed-income benchmarks.</li>
+                <li>Used to express views on interest rate movements or to hedge interest rate risk.</li>
+                <li>Example: A note that pays a coupon linked to the performance of the 10-year Treasury yield.</li>
             </ul>
 
-            <h3>Volatility Smile Arbitrage</h3>
-            <p><b>Concept:</b> Profiting from mispricings in the volatility smile.</p>
+            <h3>Commodity-Linked Notes:</h3>
             <ul>
-                <li><b>Strategy:</b>
-                    <ul>
-                        <li><b>Butterfly Spread:</b> Sell a butterfly if the wings are too expensive.
-                            <ul>
-                                <li>Buy one ATM call (or put).</li>
-                                <li>Sell two OTM calls (or puts) with a higher strike price.</li>
-                                <li>Buy one OTM call (or put) with an even higher strike price.</li>
-                            </ul>
-                        </li>
-                        <li><b>Condor Spread:</b> Similar to butterfly, but wider range of profitability. Sell a condor if the wings are too expensive</li>
-                        <li><b>Risk Reversal:</b> Buy a call, sell a put (or vice-versa).</li>
-                        <li><b>Straddle/Strangle:</b> Position based on volatility expectations</li>
-                    </ul>
-                </li>
-                <li><b>Considerations:</b> Gamma risk, theta decay.</li>
+                <li>Payoff linked to the price of a commodity, such as oil, gold, or agricultural products.</li>
+                <li>Used to gain exposure to commodity markets or to hedge commodity price risk.</li>
+                <li>Example: A note that pays a coupon linked to the price of gold.</li>
             </ul>
 
-            <h3>Volatility Term Structure Arbitrage</h3>
-            <p><b>Concept:</b> Exploiting mispricings in the volatility term structure.</p>
+            <h3>Currency-Linked Notes (FX-Linked Notes):</h3>
             <ul>
-                <li><b>Strategy:</b>
-                    <ul>
-                        <li><b>Calendar Spread:</b> Buy a long-dated option, sell a short-dated option (same strike, same underlying). Profit if long-dated IV increases relative to short-dated.</li>
-                        <li><b>Volatility Futures Spread:</b> Trade spread between VIX futures with different expirations.</li>
-                    </ul>
-                </li>
-                <li><b>Considerations:</b> Flattenting or inversion risk.</li>
+                <li>Payoff linked to the exchange rate between two currencies.</li>
+                <li>Used to express views on currency movements or to hedge currency risk.</li>
+                <li>Example: A note that pays a coupon linked to the exchange rate between the US dollar and the Euro.</li>
             </ul>
 
-            <h2>III. Risk Management Considerations</h2>
+            <h3>Range Accrual Notes:</h3>
             <ul>
-                <li><b>Gamma Risk:</b> Sensitivity to changes in the underlying asset's price (higher with ATM options).</li>
-                <li><b>Vega Risk:</b> Sensitivity to changes in implied volatility. Volatility strategies have high vega risk.</li>
-                <li><b>Theta Risk:</b> Time decay of option value (options lose value as time passes).</li>
-                <li><b>Delta Risk:</b> Sensitivity to the price of the underlying asset. Delta-neutral hedging is used.</li>
-                <li><b>Correlation Risk:</b> Understanding of potential breakdown of correlation.</li>
-                <li><b>Liquidity Risk:</b> The difficulty of exiting positions in illiquid markets.</li>
-                <li><b>Event Risk:</b> Unexpected events can cause dramatic volatility changes.</li>
-                <li><b>Margin Requirements:</b> Consider option and variance swap margin requirements.</li>
-                <li><b>Black Swan Events:</b> Be prepared for extreme, unpredictable events.</li>
+                <li>Pay a coupon only for the days when the underlying asset price stays within a specified range.</li>
+                <li>Used to express a view that the asset price will remain stable.</li>
+                <li>Example: A note that pays a daily coupon as long as the price of oil stays between $70 and $80 per barrel.</li>
             </ul>
 
-            <h2>IV. Technical Skills and Tools</h2>
+            <h3>Autocallable Notes (Callable Yield Notes):</h3>
             <ul>
-                <li><b>Option Pricing Models:</b> Black-Scholes-Merton, stochastic volatility (Heston), local volatility, jump diffusion models.</li>
-                <li><b>Statistical Modeling:</b> Time series, regression analysis, machine learning.</li>
-                <li><b>Programming:</b> Python (NumPy, SciPy, Pandas), R, VBA.</li>
-                <li><b>Data Analysis:</b> Data cleaning, visualization, statistical testing.</li>
-                <li><b>Trading Platforms:</b> Bloomberg, Reuters, proprietary platforms.</li>
-                <li><b>Volatility Forecasting:</b> Statistical models (ARIMA, GARCH), Machine learning.</li>
-                <li><b>Volatility Products:</b> VIX term structure, volatility ETFs.</li>
+                <li>Give the issuer the right to redeem the note before maturity.</li>
+                <li>Typically offer higher coupons than traditional fixed-income investments.</li>
+                <li>The note is automatically redeemed (called) if the underlying asset price reaches a certain level.</li>
+                <li>Example: A note that pays a high coupon and is automatically redeemed if the S&P 500 rises above a certain level.</li>
             </ul>
 
-            <h2>V. Key Skills for Success</h2>
+            <h3>Reverse Convertible Notes:</h3>
             <ul>
-                <li><b>Quantitative Skills:</b> Strong analytical and mathematical abilities.</li>
-                <li><b>Market Knowledge:</b> Deep understanding of option markets and volatility dynamics.</li>
-                <li><b>Risk Management:</b> Effectively manage risk.</li>
-                <li><b>Trading Psychology:</b> Discipline and emotional control.</li>
-                <li><b>Adaptability:</b> Ability to adapt to changing market conditions.</li>
-                <li><b>Continuous Learning:</b> Volatility arbitrage evolves continuously.</li>
+                <li>Pay a high coupon in exchange for the investor's agreement to potentially receive the underlying asset at maturity if its price falls below a certain level.</li>
+                <li>The investor is essentially selling a put option on the underlying asset.</li>
+                <li>Example: A note that pays a high coupon, but at maturity, the investor receives the underlying stock if its price is below a certain level.</li>
             </ul>
 
-            <h2>VI. Getting Started</h2>
+            <h2>III. Risk and Return Characteristics</h2>
+
+            <h3>Potential Benefits:</h3>
             <ul>
-                <li><b>Education:</b> Take courses on finance, statistics, and programming.</li>
-                <li><b>Reading:</b> Read books by Euan Sinclair, Nassim Nicholas Taleb, and Lawrence G. McMillan.</li>
-                <li><b>Market News:</b> Stay informed about market events and volatility trends.</li>
-                <li><b>Practice:</b> Start with small positions.</li>
+                <li>Customized exposure to specific market views.</li>
+                <li>Enhanced yield potential.</li>
+                <li>Downside protection (in some cases).</li>
+                <li>Access to complex strategies.</li>
             </ul>
 
-            <h2>VII. Common Pitfalls</h2>
+            <h3>Risks:</h3>
             <ul>
-                <li><b>Overfitting Models:</b> Avoid models that are too specific to past data.</li>
-                <li><b>Ignoring Transaction Costs:</b> Transaction costs can reduce profitability.</li>
-                <li><b>Underestimating Risk:</b> Be aware of the full range of risks.</li>
-                <li><b>Lack of Discipline:</b> Stick to trading plans.</li>
+                <li>Credit Risk: The risk that the issuer will default on its obligations.</li>
+                <li>Market Risk: The risk that the underlying asset will perform poorly, reducing the payoff.</li>
+                <li>Liquidity Risk: Structured notes may be less liquid than traditional investments.</li>
+                <li>Complexity: Difficult to understand the payoff structure and risk factors.</li>
+                <li>Call Risk (for Autocallable Notes): The issuer may redeem the note before maturity, limiting the investor's potential gains.</li>
+                <li>Opportunity Cost: By tying up capital in a structured note, investors may miss out on other investment opportunities.</li>
+                <li>Tax Implications: The tax treatment of structured notes can be complex.</li>
+                <li>Early Redemption Penalties: You may receive significantly less than the amount invested should you choose to exit a Structured Note early.</li>
+                <li>"The Grind": The compounding fees and pricing of the derivatives embedded into the structured note.</li>
             </ul>
 
-            <p>By mastering these concepts, skills, and strategies, you can build a strong foundation for success in volatility arbitrage.</p>
+            <h2>IV. Pricing and Valuation</h2>
+
+            <h3>Component-Based Approach:</h3>
+            <ul>
+                <li>Structured notes are typically priced by valuing the individual components (zero-coupon bond and derivative components) and then combining the values.</li>
+            </ul>
+
+            <h3>Option Pricing Models:</h3>
+            <ul>
+                <li>Option pricing models (e.g., Black-Scholes, Monte Carlo) are used to value the derivative components.</li>
+            </ul>
+
+            <h3>Discounting:</h3>
+            <ul>
+                <li>The future cash flows of the structured note are discounted back to the present value using an appropriate discount rate.</li>
+            </ul>
+
+            <h3>Market Data:</h3>
+            <ul>
+                <li>Accurate and timely market data is essential for pricing structured notes.</li>
+            </ul>
+
+            <h2>V. Regulation and Due Diligence</h2>
+
+            <h3>Regulation:</h3>
+            <ul>
+                <li>Structured notes are subject to various regulations, including securities laws and banking regulations.</li>
+            </ul>
+
+            <h3>Due Diligence:</h3>
+            <ul>
+                <li>Investors should carefully review the offering documents and understand the risks and rewards of structured notes before investing.</li>
+            </ul>
+
+            <h3>Suitability:</h3>
+            <ul>
+                <li>Financial advisors have a responsibility to ensure that structured notes are suitable for their clients' investment objectives and risk tolerance.</li>
+            </ul>
+
+            <h2>VI. Key Considerations for Investors</h2>
+
+            <ul>
+                <li>Investment Objectives: What are you trying to achieve with your investment?</li>
+                <li>Risk Tolerance: How much risk are you willing to take?</li>
+                <li>Understanding of the Underlying Asset: Do you understand the factors that drive the performance of the underlying asset?</li>
+                <li>Understanding of the Derivative Components: Do you understand how the derivative components affect the payoff of the structured note?</li>
+                <li>Issuer Creditworthiness: Are you comfortable with the credit risk of the issuer?</li>
+                <li>Liquidity Needs: Do you need to be able to access your capital before maturity?</li>
+                <li>Tax Implications: How will the structured note be taxed?</li>
+            </ul>
+
+            <h2>VII. Structured Notes vs. Direct Investment</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Structured Notes</th>
+                        <th>Direct Investment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Customization</td>
+                        <td>High</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>Yield Potential</td>
+                        <td>Potentially higher than fixed income</td>
+                        <td>Depends on the asset</td>
+                    </tr>
+                    <tr>
+                        <td>Downside Protection</td>
+                        <td>Possible, but not always present</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Complexity</td>
+                        <td>High</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td>Liquidity</td>
+                        <td>Typically lower</td>
+                        <td>Typically higher</td>
+                    </tr>
+                    <tr>
+                        <td>Credit Risk</td>
+                        <td>Present (issuer default)</td>
+                        <td>Not present</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>VIII. How to Analyze a Structured Note</h2>
+            <ul>
+                <li>Understand the payoff profile: Map out how the note will perform under different scenarios for the underlying asset.</li>
+                <li>Assess the risks: Identify the key risks and determine how much downside protection is offered.</li>
+                <li>Evaluate the issuer: Check the credit rating and financial stability of the issuing institution.</li>
+                <li>Compare to alternatives: Determine if a similar investment outcome can be achieved more efficiently through other instruments.</li>
+                <li>Read the fine print: Carefully review the offering documents to understand all the terms and conditions.</li>
+            </ul>
+            <p>Structured notes can be a powerful tool for sophisticated investors, but they require careful analysis and a thorough understanding of their risks.</p>
         </article>
 
         <section class="further-reading">
             <h3>Further Readings</h3>
             <ul>
-                <li><a href="#">Volatility Trading by Euan Sinclair</a></li>
-                <li><a href="#">Dynamic Hedging by Nassim Nicholas Taleb</a></li>
-                <li><a href="#">Options as a Strategic Investment by Lawrence G. McMillan</a></li>
+                <li><a href="#">Understanding Structured Notes</a></li>
+                <li><a href="#">Options and Derivatives</a></li>
+                <li><a href="#">Fixed Income Securities</a></li>
             </ul>
         </section>
 
         <section class="references">
             <h3>References</h3>
             <ul>
-                <li>Hull, J.C. *Options, Futures, and Other Derivatives*. Pearson Education, 2018.</li>
-                <li>Sinclair, E. *Volatility Trading*. Harriman House, 2012.</li>
-                <li>Taleb, N.N. *Dynamic Hedging*. John Wiley & Sons, 1997.</li>
-                <li>McMillan, L.G. *Options as a Strategic Investment*. New York Institute of Finance, 2002.</li>
+                <li>Fabozzi, F. J. Fixed Income Analysis</li>
+                <li>Hull, J. C. Options, Futures, and Other Derivatives</li>
+                <li>Some old articles I can't even find anymore</li>
             </ul>
         </section>
     </main>
