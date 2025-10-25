@@ -1,5 +1,7 @@
 # Content Plan: "Building My First Quant Trading Strategy" Blog Series
 
+### Used my own roadmap + Gemini 2.5 Pro for this content plan.
+
 This document outlines the content strategy for a series of in-depth articles that will document the development of a quantitative trading strategy from idea to execution. The series will follow the structured phases of a professional quant research project, providing a real-world narrative for readers.
 
 ## Series Overview
