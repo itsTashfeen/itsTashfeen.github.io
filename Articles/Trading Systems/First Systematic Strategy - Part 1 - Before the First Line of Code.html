@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Structured Notes: A Primer</title>
+    <title>My First Systematic Strategy, Part 1 - Before the First Line of Code</title>
     <script src="../../../theme-init.js"></script>
     <style>
         /*  Include the ENTIRE CSS from your articles.html and main index.html file here to ensure consistent styling */
@@ -98,8 +98,9 @@
             background-color: var(--accent-primary);
         }
 
-        p {
+        p, ul, ol {
             margin-bottom: 1.2rem;
+            color: var(--text-secondary);
         }
 
         a {
@@ -210,7 +211,7 @@
         }
 
         .light-icon {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238a4baf'%3E%3Cpath d='M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z'%3E%3C/path%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w.3.org/2000/svg' viewBox='0 0 24 24' fill='%238a4baf'%3E%3Cpath d='M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z'%3E%3C/path%3E%3C/svg%3E");
         }
 
         .dark-icon {
@@ -227,7 +228,7 @@
             background-color: var(--bg-card);
             border-radius: 12px;
             box-shadow: var(--card-shadow);
-            padding: 30px;
+            padding: 30px 40px;
             margin-bottom: 30px;
         }
 
@@ -241,6 +242,14 @@
 
         .article-content h1:first-child {
             margin-top: 0;
+            text-align: center;
+        }
+
+        .article-content h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--text-primary);
         }
 
         .article-content ul,
@@ -259,6 +268,7 @@
             padding: 15px 20px;
             margin: 1.5em 0;
             border-radius: 0 8px 8px 0;
+            font-style: italic;
         }
 
         .article-content code {
@@ -305,36 +315,8 @@
 
         .further-reading li, .references li {
             margin-bottom: 8px;
+            text-align: center;
         }
-
-        .further-reading a, .references a {
-            /* Customize the link styles as needed */
-        }
-
-        /* Table Styles */
-        table {
-            width: 100%; /* Make table span full width */
-            border-collapse: collapse;  /* Remove spacing between borders */
-            margin-top: 1.5em;  /* Space above the table */
-            margin-bottom: 1.5em; /* Space below the table */
-        }
-
-        th, td {
-            border: 1px solid var(--border-color); /* Add borders to cells */
-            padding: 10px; /* Add padding inside cells */
-            text-align: left; /* Align text to the left by default */
-        }
-
-        th {
-            background-color: var(--bg-card); /* Light background for headers */
-            font-weight: 600; /* Bold header text */
-        }
-
-        /* Optional: Zebra striping for readability */
-        tbody tr:nth-child(even) {
-            background-color: var(--bg-secondary);
-        }
-
 
         /* Footer - Same as index.html and articles.html */
         footer {
@@ -359,12 +341,8 @@
                 padding: 20px 15px;
             }
 
-            .article-list {
-                grid-template-columns: 1fr;
-            }
-
-            .markdown-content {
-                padding: 20px 15px;
+            .article-content {
+                padding: 25px 20px;
             }
 
             footer {
@@ -390,262 +368,65 @@
 
     <main>
         <article class="article-content">
-            <h1>First Systematic Strat</h1>
+            <h1>My First Systematic Strategy</h1>
             <h2>Part 1 - Before the First Line of Code</h2>
-            <p></p>
 
+            <p>This series will be my transparent journey through that entire process. I will be building a probabilistic arbitrage bot for Polymarket's 15-minute Bitcoin binary options and I'll also be documenting every phase, from the initial idea validation to the final live-trading system. This is Phase 0: due diligence. Before writing a single line I'll ask three fundamental questions: Where are we hunting? What does theory tell us? And who are we hunting against?</p>
 
-            <h3>What are Structured Notes?</h3>
+            <h3>The Hunting Ground: Why Polymarket?</h3>
+            <p>The first step in any strategy is to define the universe or the specific market and product I intend to trade.
+                My target is Polymarket's 15-minute "Up or Down" market for Bitcoin. This choice is deliberate for several
+                reasons I will discuss throughout the upcoming articles that make it an attractive laboratory for a first systematic strategy.</p>
+
+            <h3>Key Characteristics of the Market:</h3>
             <ul>
-                <li>Debt instruments (notes) with embedded derivatives.</li>
-                <li>Issued by financial institutions (banks, broker-dealers).</li>
-                <li>Payoff linked to the performance of one or more underlying assets or indices.</li>
-                <li>Customized to meet specific investor needs.</li>
+                <li><strong>Binary & Bounded:</strong> The outcome is a simple "yes" or "no," and the contract price is
+                    confined between $0.00 and $1.00. This simplifies the modeling problem given that I'm predicting a probability,
+                    not a price magnitude.</li>
+                <li><strong>High Frequency:</strong> With four contracts per hour and 24 hours a day this market generates
+                    a vast number of trading opportunities. I believe that this is crucial for a statistical strategy, which relies on
+                    the lLLN for its edge to materialize.</li>
+                <li><strong>Directly Observable Probability:</strong> The price of a contract on a prediction market is
+                    a direct, real-time reflection of the crowd's perceived probability of an event. If a contract for
+                    "BTC Up" is trading at $0.65 then the market is pricing in a 65% chance of that outcome. This gives us
+                    a clear benchmark to beat. My alpha is simply the difference between my model's hypothetically more accurate
+                    probability and the market's less accurate one: <code>Edge = |P_model - P_market|</code>.</li>
+                <li><strong>Potentially Inefficient:</strong> While major financial markets are hyper-competitive I believe that
+                    prediction markets often have a higher concentration of retail participants. This can lead to pricing that is
+                    more influenced by behavioral biases than by pure statistical reality whoch creates the exact inefficiencies I aim to exploit.</li>
+            </ul>
+            
+            <h2>Sizing Up the Competition: The Competitive Landscape</h2>
+            <p>We are not trading in a vacuum. The profitability of any strategy is determined not just by its logic, but by the environment it operates in. We must be keenly aware of the other players in the game.</p>
+
+            <h3>Who else is in this market?</h3>
+            <ul>
+                <li><strong>Retail Participants:</strong> A large portion of the user base, often trading based on gut feeling, social media sentiment, or simple chart patterns. They collectively create the market price we are trying to analyze.</li>
+                <li><strong>Automated Market Makers (MMs):</strong> Bots whose primary goal is to provide liquidity by placing both buy and sell orders. They make money on the bid-ask spread and are not typically focused on directional prediction. They are our primary source of transaction costs.</li>
+                <li><strong>Other Quant/Arbitrage Bots:</strong> Our direct competition. These are other systematic traders who are likely running their own models to find similar inefficiencies. They are the reason any edge is likely to be small and fleeting.</li>
             </ul>
 
-            <h3>Why Invest in Structured Notes?</h3>
-            <ul>
-                <li>Customization: Tailored exposure to specific asset classes, market views, and risk profiles.</li>
-                <li>Enhanced Yield: Potentially higher yields than traditional fixed-income investments (but with higher risk).</li>
-                <li>Downside Protection: Some structured notes offer limited downside protection.</li>
-                <li>Access to Complex Strategies: Access to strategies that may be difficult or expensive to implement directly.</li>
-            </ul>
+            <p>This competitive analysis tells us two things: First, an edge might exist because the market is not dominated by alpha-seeking funds. Second, that edge will be constrained by the costs imposed by market makers (the spread) and the speed of other arbitrage bots. Our due diligence must include a thorough analysis of these costs to ensure our model's predictions are strong enough to overcome them.</p>
 
-            <h3>Underlying Assets:</h3>
-            <p>Could be constructed by using two or more of the below</p>
-            <ul>
-                <li>Equities (individual stocks, indices)</li>
-                <li>Fixed Income (bonds, interest rates)</li>
-                <li>Commodities</li>
-                <li>Currencies (FX rates)</li>
-                <li>Alternative Investments (hedge funds, private equity)</li>
-                <li>Hybrids (combinations of the above)</li>
-            </ul>
+            <hr style="border: 0; height: 1px; background: var(--border-color); margin: 2rem 0;">
 
-            <h3>Derivative Components:</h3>
-            <ul>
-                <li>Options (vanilla and/or exotics)</li>
-                <li>Swaps (irs, cds, equity swaps)</li>
-                <li>Futures (commodity futures, index futures)</li>
-                <li>Forwards</li>
-            </ul>
+            <p>With this initial groundwork complete, we have a clear thesis. We've identified a promising market, acknowledged the theoretical hurdles, and assessed the competitive environment. The next crucial step is to move from theory to practice. In Part 2, we will get our hands on a sample of real data and perform a "napkin sketch" analysis to see if we can find the first hints of a profitable edge.</p>
 
-            <h3>Key Building Blocks:</h3>
-            <ul>
-                <li><a href="#">Zero-Coupon Bond: </a>The foundation of most structured notes. Provides the principal repayment at maturity.</li>
-                <li><a href="#">Options: </a>Used to generate potential upside exposure to the underlying asset.</li>
-                <ul>
-                    <li><a href="#">Barrier Options: </a>Used to create knock-in or knock-out features, affecting the payoff based on asset price levels.</li>
-                    <li><a href="#">Digital Options: </a>Pay a fixed amount if a certain condition is met.</li>
-                     <li><a href="#">Cliquet Options: </a>As discussed before, these reset at intervals.</li>
-                </ul>
-
-            </ul>
-
-            <h2>II. Common Types of Structured Notes</h2>
-
-            <h3>Principal-Protected Notes (PPNs):</h3>
-            <ul>
-                <li>Offer full or partial principal protection at maturity.</li>
-                <li>The return is linked to the performance of an underlying asset.</li>
-                <li>Typically use a zero-coupon bond to provide the principal protection and options to provide the upside exposure.</li>
-                <li>Example: A note that guarantees the return of principal at maturity, plus a percentage of the gains in the S&P 500 index.</li>
-            </ul>
-
-            <h3>Equity-Linked Notes (ELNs):</h3>
-            <ul>
-                <li>Payoff linked to the performance of a single stock or a basket of stocks.</li>
-                <li>Offer potential for higher returns than traditional fixed income, but with greater risk.</li>
-                <li>Can be customized with various features, such as caps, floors, and participation rates.</li>
-                <li>Example: A note that pays a fixed coupon plus a percentage of the appreciation in a specific technology stock, up to a certain cap.</li>
-            </ul>
-
-            <h3>Fixed Income-Linked Notes:</h3>
-            <ul>
-                <li>Payoff linked to interest rates, inflation, or other fixed-income benchmarks.</li>
-                <li>Used to express views on interest rate movements or to hedge interest rate risk.</li>
-                <li>Example: A note that pays a coupon linked to the performance of the 10-year Treasury yield.</li>
-            </ul>
-
-            <h3>Commodity-Linked Notes:</h3>
-            <ul>
-                <li>Payoff linked to the price of a commodity, such as oil, gold, or agricultural products.</li>
-                <li>Used to gain exposure to commodity markets or to hedge commodity price risk.</li>
-                <li>Example: A note that pays a coupon linked to the price of gold.</li>
-            </ul>
-
-            <h3>Currency-Linked Notes (FX-Linked Notes):</h3>
-            <ul>
-                <li>Payoff linked to the exchange rate between two currencies.</li>
-                <li>Used to express views on currency movements or to hedge currency risk.</li>
-                <li>Example: A note that pays a coupon linked to the exchange rate between the US dollar and the Euro.</li>
-            </ul>
-
-            <h3>Range Accrual Notes:</h3>
-            <ul>
-                <li>Pay a coupon only for the days when the underlying asset price stays within a specified range.</li>
-                <li>Used to express a view that the asset price will remain stable.</li>
-                <li>Example: A note that pays a daily coupon as long as the price of oil stays between $70 and $80 per barrel.</li>
-            </ul>
-
-            <h3>Autocallable Notes (Callable Yield Notes):</h3>
-            <ul>
-                <li>Give the issuer the right to redeem the note before maturity.</li>
-                <li>Typically offer higher coupons than traditional fixed-income investments.</li>
-                <li>The note is automatically redeemed (called) if the underlying asset price reaches a certain level.</li>
-                <li>Example: A note that pays a high coupon and is automatically redeemed if the S&P 500 rises above a certain level.</li>
-            </ul>
-
-            <h3>Reverse Convertible Notes:</h3>
-            <ul>
-                <li>Pay a high coupon in exchange for the investor's agreement to potentially receive the underlying asset at maturity if its price falls below a certain level.</li>
-                <li>The investor is essentially selling a put option on the underlying asset.</li>
-                <li>Example: A note that pays a high coupon, but at maturity, the investor receives the underlying stock if its price is below a certain level.</li>
-            </ul>
-
-            <h2>III. Risk and Return Characteristics</h2>
-
-            <h3>Potential Benefits:</h3>
-            <ul>
-                <li>Customized exposure to specific market views.</li>
-                <li>Enhanced yield potential.</li>
-                <li>Downside protection (in some cases).</li>
-                <li>Access to complex strategies.</li>
-            </ul>
-
-            <h3>Risks:</h3>
-            <ul>
-                <li>Credit Risk: The risk that the issuer will default on its obligations.</li>
-                <li>Market Risk: The risk that the underlying asset will perform poorly, reducing the payoff.</li>
-                <li>Liquidity Risk: Structured notes may be less liquid than traditional investments.</li>
-                <li>Complexity: Difficult to understand the payoff structure and risk factors.</li>
-                <li>Call Risk (for Autocallable Notes): The issuer may redeem the note before maturity, limiting the investor's potential gains.</li>
-                <li>Opportunity Cost: By tying up capital in a structured note, investors may miss out on other investment opportunities.</li>
-                <li>Tax Implications: The tax treatment of structured notes can be complex.</li>
-                <li>Early Redemption Penalties: You may receive significantly less than the amount invested should you choose to exit a Structured Note early.</li>
-                <li>"The Grind": The compounding fees and pricing of the derivatives embedded into the structured note.</li>
-            </ul>
-
-            <h2>IV. Pricing and Valuation</h2>
-
-            <h3>Component-Based Approach:</h3>
-            <ul>
-                <li>Structured notes are typically priced by valuing the individual components (zero-coupon bond and derivative components) and then combining the values.</li>
-            </ul>
-
-            <h3>Option Pricing Models:</h3>
-            <ul>
-                <li>Option pricing models (e.g., Black-Scholes, Monte Carlo) are used to value the derivative components.</li>
-            </ul>
-
-            <h3>Discounting:</h3>
-            <ul>
-                <li>The future cash flows of the structured note are discounted back to the present value using an appropriate discount rate.</li>
-            </ul>
-
-            <h3>Market Data:</h3>
-            <ul>
-                <li>Accurate and timely market data is essential for pricing structured notes.</li>
-            </ul>
-
-            <h2>V. Regulation and Due Diligence</h2>
-
-            <h3>Regulation:</h3>
-            <ul>
-                <li>Structured notes are subject to various regulations, including securities laws and banking regulations.</li>
-            </ul>
-
-            <h3>Due Diligence:</h3>
-            <ul>
-                <li>Investors should carefully review the offering documents and understand the risks and rewards of structured notes before investing.</li>
-            </ul>
-
-            <h3>Suitability:</h3>
-            <ul>
-                <li>Financial advisors have a responsibility to ensure that structured notes are suitable for their clients' investment objectives and risk tolerance.</li>
-            </ul>
-
-            <h2>VI. Key Considerations for Investors</h2>
-
-            <ul>
-                <li>Investment Objectives: What are you trying to achieve with your investment?</li>
-                <li>Risk Tolerance: How much risk are you willing to take?</li>
-                <li>Understanding of the Underlying Asset: Do you understand the factors that drive the performance of the underlying asset?</li>
-                <li>Understanding of the Derivative Components: Do you understand how the derivative components affect the payoff of the structured note?</li>
-                <li>Issuer Creditworthiness: Are you comfortable with the credit risk of the issuer?</li>
-                <li>Liquidity Needs: Do you need to be able to access your capital before maturity?</li>
-                <li>Tax Implications: How will the structured note be taxed?</li>
-            </ul>
-
-            <h2>VII. Structured Notes vs. Direct Investment</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Structured Notes</th>
-                        <th>Direct Investment</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Customization</td>
-                        <td>High</td>
-                        <td>Low</td>
-                    </tr>
-                    <tr>
-                        <td>Yield Potential</td>
-                        <td>Potentially higher than fixed income</td>
-                        <td>Depends on the asset</td>
-                    </tr>
-                    <tr>
-                        <td>Downside Protection</td>
-                        <td>Possible, but not always present</td>
-                        <td>None</td>
-                    </tr>
-                    <tr>
-                        <td>Complexity</td>
-                        <td>High</td>
-                        <td>Low</td>
-                    </tr>
-                    <tr>
-                        <td>Liquidity</td>
-                        <td>Typically lower</td>
-                        <td>Typically higher</td>
-                    </tr>
-                    <tr>
-                        <td>Credit Risk</td>
-                        <td>Present (issuer default)</td>
-                        <td>Not present</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2>VIII. How to Analyze a Structured Note</h2>
-            <ul>
-                <li>Understand the payoff profile: Map out how the note will perform under different scenarios for the underlying asset.</li>
-                <li>Assess the risks: Identify the key risks and determine how much downside protection is offered.</li>
-                <li>Evaluate the issuer: Check the credit rating and financial stability of the issuing institution.</li>
-                <li>Compare to alternatives: Determine if a similar investment outcome can be achieved more efficiently through other instruments.</li>
-                <li>Read the fine print: Carefully review the offering documents to understand all the terms and conditions.</li>
-            </ul>
-            <p>Structured notes can be a powerful tool for sophisticated investors, but they require careful analysis and a thorough understanding of their risks.</p>
         </article>
 
         <section class="further-reading">
             <h3>Further Readings</h3>
             <ul>
-                <li><a href="#">Understanding Structured Notes</a></li>
-                <li><a href="#">Options and Derivatives</a></li>
-                <li><a href="#">Fixed Income Securities</a></li>
+                <li><a href="https://docs.polymarket.com/polymarket-learn/get-started/what-is-polymarket" target="_blank" rel="noopener noreferrer">What is Polymarket? - Official Docs</a></li>
+                <li><a href="https://www.investopedia.com/terms/e/efficientmarkethypothesis.asp" target="_blank" rel="noopener noreferrer">Efficient Market Hypothesis (EMH) - Investopedia</a></li>
             </ul>
         </section>
 
         <section class="references">
             <h3>References</h3>
             <ul>
-                <li>Fabozzi, F. J. Fixed Income Analysis</li>
-                <li>Hull, J. C. Options, Futures, and Other Derivatives</li>
-                <li>Some old articles I can't even find anymore</li>
+                <li>Fama, E. F. (1970). Efficient Capital Markets: A Review of Theory and Empirical Work.</li>
+                <li>Malkiel, B. G. (2003). The efficient market hypothesis and its critics.</li>
             </ul>
         </section>
     </main>
@@ -662,6 +443,9 @@
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
             applyDarkTheme();
+        } else {
+            // Default to light theme if no preference is saved or if it's set to light
+            applyLightTheme();
         }
 
         // Theme toggle event listener - Same as index.html and articles.html
@@ -674,6 +458,7 @@
         });
 
         function applyDarkTheme() {
+            htmlElement.classList.remove('light-theme');
             htmlElement.classList.add('dark-theme');
             themeText.textContent = 'Light Mode';
             lightIcon.style.display = 'none';
@@ -683,6 +468,7 @@
 
         function applyLightTheme() {
             htmlElement.classList.remove('dark-theme');
+            htmlElement.classList.add('light-theme');
             themeText.textContent = 'Dark Mode';
             lightIcon.style.display = 'block';
             darkIcon.style.display = 'none';
