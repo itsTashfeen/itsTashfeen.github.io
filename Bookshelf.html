@@ -82,6 +82,7 @@
         .filter-group {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .book-count {
@@ -292,6 +293,20 @@
             .books-grid {
                 margin-bottom: 60px;
             }
+
+            button {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+
+            .controls {
+                gap: 10px;
+            }
+
+            .book-count {
+                width: 100%;
+                text-align: center;
+            }
         }
 
         /* Footer spacing */
@@ -332,11 +347,9 @@
                 <button class="filter-btn" data-filter="fineng">FinEng</button>
                 <button class="filter-btn" data-filter="stat">Stat/Prob</button>
                 <button class="filter-btn" data-filter="macroeconomics">Macroeconomics</button>
-
             </div>
             <div class="book-count" id="bookCount">0 BOOKS</div>
         </div>
-    <main>
         <div class="books-grid" id="booksGrid"></div>
     </main>
 
@@ -348,7 +361,6 @@
     </div>
 
     <script>
-        // Sample book data - replace with your actual books
         const books = [
             {
                 title: "Geopolitical Alpha",
@@ -544,14 +556,11 @@
         let currentFilter = 'all';
         let isDarkMode = localStorage.getItem('theme') === 'dark';
 
-        // Apply saved theme on load
         if (isDarkMode) {
             document.documentElement.classList.add('dark-theme');
         }
 
-        // Wait for DOM to be ready
         document.addEventListener('DOMContentLoaded', function() {
-            // Theme toggle
             const themeToggle = document.getElementById('themeToggle');
             const themeText = document.getElementById('themeText');
             
@@ -566,7 +575,6 @@
                 });
             }
 
-            // Filter buttons
             const filterBtns = document.querySelectorAll('.filter-btn');
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -577,11 +585,9 @@
                 });
             });
 
-            // Initial render
             renderBooks();
         });
 
-        // Render books
         function renderBooks() {
             const grid = document.getElementById('booksGrid');
             const filtered = currentFilter === 'all' 
@@ -604,7 +610,6 @@
             `).join('');
         }
 
-        // Modal functions
         function openModal(index) {
             const book = books[index];
             const modal = document.getElementById('bookModal');
@@ -634,7 +639,6 @@
             modal.classList.add('active');
         }
 
-                
         function closeModal() {
             document.getElementById('bookModal').classList.remove('active');
         }
@@ -646,13 +650,10 @@
             });
         });
 
-        // Initial render
         renderBooks();
     </script>
 
-    <!-- Footer -->
     <script>
-        // Inject footer
         const footerContent = `
             <div class="copyright">
                 © 2025 TASHFEEN OMRAN
