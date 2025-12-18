@@ -318,16 +318,23 @@
 
     <main>
         <h1>BOOKSHELF</h1>
+        <section>
+            <h2>Books I'm reading, have pretended to read, will read, or will never leave my bookshelf. No particular order.</h2>
+        </section>
         <div class="controls">
             <div class="filter-group">
                 <button class="filter-btn active" data-filter="all">ALL</button>
                 <button class="filter-btn" data-filter="macroeconomics">Macroeconomics</button>
-                <button class="filter-btn" data-filter="liked">LIKED</button>
+                <button class="filter-btn" data-filter="currently">Currently Reading</button>
+                <button class="filter-btn" data-filter="read=false">Haven't Read</button>
+                <button class="filter-btn" data-filter="Classics">Classics</button>
+                <button class="filter-btn" data-filter="Derivatives">Derivatives</button>
+                <button class="filter-btn" data-filter="reallyliked">Favourite</button>
+                <button class="filter-btn" data-filter="liked">Stat/Prob</button>
+
             </div>
             <div class="book-count" id="bookCount">0 BOOKS</div>
         </div>
-    </header>
-
     <main>
         <div class="books-grid" id="booksGrid"></div>
     </main>
@@ -345,20 +352,182 @@
             {
                 title: "Geopolitical Alpha",
                 author: "Marko Papic",
-                cover: "https://m.media-amazon.com/images/I/81SSCa7EppL._SL1500_.jpg",
-                tags: ["macroeconomics", "business"],
+                cover: "Resources/BookCovers/Geopolitical Alpha.jpg",
+                tags: ["macroeconomics", "currently"],
                 year: 2025,
-                summary: "Netflix's radical approach to culture and management. A blueprint for building a high-performance culture.",
-                thoughts: "Completely changed how I think about workplace culture. The concept of 'freedom and responsibility' is revolutionary."
+                summary: "Haven't really read yet",
+                thoughts: "None yet"
             },
             {
                 title: "Principles for Dealing with the Changing World Order",
                 author: "Ray Dalio",
-                cover: "https://m.media-amazon.com/images/I/71-WJgHWC1L._SL1500_.jpg",
-                tags: ["macroeconomics"],
+                cover: "Resources/BookCovers/Principles for Dealing with The Changing World Order.jpg",
+                tags: ["macroeconomics", "currently"],
                 year: 2025,
-                summary: "Long-term thinking and how our actions today affect future generations.",
-                thoughts: "Shifted my entire perspective on time and responsibility to the future."
+                summary: "Interesting analysis of major empires and global power cycles.",
+                thoughts: "I'm halfway through and I'm interested in his other books too."
+            },
+            {
+                title: "The Volatility Smile",
+                author: "Emanuel Derman",
+                cover: "Resources/BookCovers/The%20Volatility%20Smile.jpg",
+                tags: ["Derivatives"],
+                year: 2016,
+                summary: "Good technical introductoin to local and stochastic vol models",
+                thoughts: "Great explanation of smile dynamics, still haven't read the full thing yet."
+            },
+            {
+                title: "Option Trading: Pricing and Volatility Strategies",
+                author: "Euan Sinclair",
+                cover: "Resources/BookCovers/Option Trading - Pricing and Vol Strats.jpg",
+                tags: ["Derivatives"],
+                year: 2010,
+                summary: "Pricing, volatility and hedging for different option strategies",
+                thoughts: "Really Haven't read it, only using it as a supplement to the Natenberg and other books."
+            },
+            {
+                title: "Option Volatility & Pricing",
+                author: "Sheldon Natenberg",
+                cover: "Resources/BookCovers/Option Vol and Pricing -Natenberg.jpg",
+                tags: ["Derivatives"],
+                year: 2014,
+                summary: "The standard reference, what else can i say?",
+                thoughts: "Fully read, cover to cover and I'm on my second run but focusing on specific aspects and going deeper into the technical aspects."
+            },
+            {
+                title: "Advanced Equity Derivatives",
+                author: "Sebastien Bossu",
+                cover: "Resources/BookCovers/Advanced Equity Derivatives - Bossu.jpg",
+                tags: ["Derivatives"],
+                year: 2014,
+                summary: "Advanced concepts of pricing and hedging exoticss, focus on vol and correlation,",
+                thoughts: "Really technical, using it as a reference more than a book to read cover to cover. Still delving and understanding all concepts relative to my interest."
+            },
+            {
+                title: "Exotic Options Trading",
+                author: "Frans De Weert",
+                cover: "Resources/BookCovers/Exotic Options Trading - De Weert.jpg",
+                tags: ["Derivatives", "Exotic Derivatives"],
+                year: 2008,
+                summary: "A risk-focused approach to pricing exoticss and also explaining the economics and greek profiles behind the complex structures.",
+                thoughts: "First book I read about exotics, visual approach to greek profiles and payoff structures of different strategies and products is helping a lot."
+            },
+            {
+                title: "Exotic Options & Hybrids",
+                author: "Mohamed Bouzoubaa, Adel Osseiran",
+                cover: "Resources/BookCovers/Exotic Options and Hybrids - Bouzoubaa.jpg",
+                tags: ["Derivatives", "Exotic Derivatives"],
+                year: 2010,
+                summary: "A comprehensive reference for practical guide to structuring and pricing complex exotic options and hybrid derivatives with practical desk perspectives.",
+                thoughts: "Haven't read anything on there yet. Good reference, will surely be reading some relevant topics."
+            },
+            {
+                title: "Systematic Trading",
+                author: "Robert Carver",
+                cover: "Resources/BookCovers/Systematic Trading - Carver.jpg",
+                tags: ["Systematic Trading"],
+                year: 2015,
+                summary: "",
+                thoughts: "Was recommended to me for creating a good framework for sytematic trading, read some chapters but will need to get back to it."
+            },
+            {
+                title: "Expected Returns",
+                author: "Antti Ilmanen",
+                cover: "Resources/BookCovers/Expected Returns - Illmanen.jpg",
+                tags: ["Asset Allocation"],
+                year: 2011,
+                summary: "An investor's guide to harvesting market rewards, analyzing the expected returns of major asset classes and investment strategies.",
+                thoughts: "A monumental work. It fundamentally changed my view on asset allocation by focusing on return drivers rather than just asset classes."
+            },
+            {
+                title: "Quantitative Portfolio Management",
+                author: "Michael Isichenko",
+                cover: "Resources/BookCovers/Quant Portfolio Management - Isichenko.jpg",
+                tags: ["Quantitative Finance"],
+                year: 2021,
+                summary: "A systematic review of quantitative equity trading (statistical arbitrage), covering data analysis, signal generation, and portfolio optimization.",
+                thoughts: "A dense but rewarding read. It offers a rare, honest look into the 'art' of statistical arbitrage and the challenges of real-world implementation."
+            },
+            {
+                title: "Inside the Black Box",
+                author: "Rishi K. Narang",
+                cover: "Resources/BookCovers/Inside the Black Box.jpg",
+                tags: ["Algorithmic Trading"],
+                year: 2013,
+                summary: "A simple guide to quantitative and high-frequency trading, demystifying how quant strategies differ from traditional investing.",
+                thoughts: "The perfect primer for understanding the quant world. It demystifies the 'black box' and explains the components of a systematic strategy clearly."
+            },
+            {
+                title: "Dubliners",
+                author: "James Joyce",
+                cover: "Resources/BookCovers/The Dubliners.jpg",
+                tags: ["Fiction", "Classics"],
+                year: 1914,
+                summary: "A collection of fifteen short stories depicting Irish middle-class life in and around Dublin in the early 20th century.",
+                thoughts: "Joyce's ability to capture the paralysis of a city and the subtle 'epiphanies' of its inhabitants is masterful. 'The Dead' is a haunting conclusion."
+            },
+            {
+                title: "Adaptive Markets: Financial Evolution at the Speed of Thought",
+                author: "Andrew Lo",
+                cover: "Resources/BookCovers/Adaptive Markets.jpg",
+                tags: ["Economics", "Finance"],
+                year: 2017,
+                summary: "Proposes the Adaptive Markets Hypothesis, reconciling efficient market theories with behavioral economics using principles from evolutionary biology.",
+                thoughts: "A crucial evolution of the Efficient Market Hypothesis. It explains why markets look rational sometimes and irrational at others—it's all about adaptation to the environment."
+            },
+            {
+                title: "Superforecasting: The Art and Science of Prediction",
+                author: "Dan Gardner and Philip E. Tetlock",
+                cover: "Resources/BookCovers/Superforcasting - The art and science of prediction.jpg",
+                tags: ["Psychology", "Decision Making"],
+                year: 2015,
+                summary: "An analysis of the Good Judgment Project, distilling the specific thinking styles and methods that allow certain individuals to predict future events with superior accuracy.",
+                thoughts: "The emphasis on frequent, small updates to one's beliefs is a game-changer. It turns prediction from a dark art into a trainable skill."
+            },
+            {
+                title: "Republic",
+                author: "Plato",
+                cover: "Resources/BookCovers/The Republic.jpg",
+                tags: ["Philosophy", "Classics"],
+                year: -375,
+                summary: "A Socratic dialogue concerning justice, the order and character of the just city-state, and the just man.",
+                thoughts: "The Allegory of the Cave remains one of the most powerful mental models for understanding perception versus reality. Essential reading for structured thinking."
+            },
+            {
+                title: "The Catcher in the Rye",
+                author: "J. D. Salinger",
+                cover: "Resources/BookCovers/The Catcher in The Rye.jpg",
+                tags: ["Fiction", "Classics"],
+                year: 1951,
+                summary: "The story of Holden Caulfield, a teenager from New York City who wanders the city after being expelled from prep school, dealing with alienation and superficiality.",
+                thoughts: "The quintessential voice of teenage angst. Salinger captures the specific loneliness of seeing through societal 'phoniness' without having the maturity to navigate it."
+            },
+            {
+                title: "The Adventures of Tom Sawyer",
+                author: "Mark Twain",
+                cover: "Resources/BookCovers/The Adventures of Tom Sawyer.jpg",
+                tags: ["Fiction", "Classics"],
+                year: 1876,
+                summary: "The adventures of a young boy growing up along the Mississippi River, exploring themes of childhood, freedom, and the hypocrisy of adult society.",
+                thoughts: "Twain's wit is sharpest here. It disguises a satirical look at society's rigid structures as a lighthearted adventure."
+            },
+            {
+                title: "The Count of Monte Cristo",
+                author: "Alexandre Dumas, Auguste Maquet",
+                cover: "Resources/BookCovers/The Count of Monte Cristo.jpg",
+                tags: ["Fiction", "Classics"],
+                year: 1844,
+                summary: "The epic tale of Edmond Dantès, who is wrongfully imprisoned, escapes, acquires a fortune, and exacts elaborate revenge on those who betrayed him.",
+                thoughts: "The ultimate lesson in patience and strategy. The intricacy of the plot and the satisfaction of the slow-burn revenge make it a masterpiece of storytelling."
+            },
+            {
+                title: "How to Hide an Empire: A History of the Greater United States",
+                author: "Daniel Immerwahr",
+                cover: "Resources/BookCovers/How to Hide an Empire.jpg",
+                tags: ["History", "Geopolitics"],
+                year: 2019,
+                summary: "A history of the United States focusing on its overseas territories and colonies, revealing the full extent of American imperialism.",
+                thoughts: "Completely reframes the map of the US. It exposes the blind spot most Americans have regarding their own country's geography and imperial reach."
             }
         ];
 
