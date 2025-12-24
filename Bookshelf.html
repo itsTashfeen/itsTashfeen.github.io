@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Delta Donut - Bookshelf</title>
+    <script src="theme-init.js"></script>
     <style>
         :root {
             --bg: #ffffff;
@@ -77,6 +78,62 @@
         button.active {
             background: var(--fg);
             color: var(--bg);
+        }
+
+        /* Navigation */
+        nav {
+            margin-top: 25px;
+            width: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            gap: 0;
+            border-top: 3px solid var(--border);
+            border-bottom: 3px solid var(--border);
+        }
+
+        nav li {
+            border-right: 3px solid var(--border);
+        }
+
+        nav li:last-child {
+            border-right: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 12px 20px;
+            display: block;
+            font-size: 0.9rem;
+            color: var(--fg);
+            transition: all 0.2s;
+        }
+
+        nav a:hover {
+            background: var(--fg);
+            color: var(--bg);
+        }
+
+        @media (max-width: 700px) {
+            nav li {
+                border-right: none;
+                border-bottom: 2px solid var(--border);
+            }
+            
+            nav li:last-child {
+                border-bottom: none;
+            }
+        }
+
+        h2 {
+            margin-bottom: 2rem !important;
+            padding-bottom: 0.8rem !important;
         }
 
         .filter-group {
@@ -319,22 +376,18 @@
 </head>
 <body>
     <header>
-        <div class="site-title">
-            <a href="index.html" style="text-decoration: none; color: inherit;">
-                <h1 style="font-size: 2.5rem; margin-bottom: 0.3rem; letter-spacing: -2px;">THE DELTA DONUT</h1>
-            </a>
-            <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin: 0.3rem 0;">Personal online directory for all of my notes.</p>
-            <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin: 0.3rem 0;">Cooking stuff will be up soon!</p>
-        </div>
         <button class="theme-toggle" id="themeToggle">
             <span id="themeText">DARK MODE</span>
         </button>
+
+        <nav>
+        </nav>
     </header>
 
     <main>
         <h1>BOOKSHELF</h1>
         <section>
-            <h2>Books I read, am currently reading, will read or have pretended to read. In no particular order.</h2>
+            <h3>Books I read, am currently reading, will read or have pretended to read. In no particular order.</h3>
         </section>
         <div class="controls">
             <div class="filter-group">

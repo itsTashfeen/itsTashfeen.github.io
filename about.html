@@ -240,7 +240,12 @@
 
         @media (min-width: 700px) {
             .about-section {
-                grid-template-columns: 1fr 1fr; /* Two columns on larger screens */
+                grid-template-columns: auto 1fr; /* Image takes natural width, text takes remaining space */
+                align-items: start; /* Align items to the top */
+            }
+            
+            .about-image {
+                max-width: 300px; /* Limit image width on larger screens */
             }
         }
 

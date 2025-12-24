@@ -575,6 +575,39 @@
             background-color: var(--accent-secondary);
             text-decoration: none;
         }
+
+        /* About Section Styles */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column by default */
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .about-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: none;
+            margin-bottom: 0px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        @media (min-width: 700px) {
+            .about-section {
+                grid-template-columns: auto 1fr; /* Image takes natural width, text takes remaining space */
+                align-items: start; /* Align items to the top */
+            }
+            
+            .about-image {
+                max-width: 300px; /* Limit image width on larger screens */
+            }
+        }
     </style>
 </head>
 <body>
@@ -589,23 +622,6 @@
     </header>
 
     <main>
-        <section class="folder-nav">
-            <h3>Latest</h3>
-            <ul class="folder-list">
-                <li class="folder-item">
-                    <a href="Articles/Derivatives/Introductions and Primers/exotic options beyond vanilla.html" class="folder-link">
-                        <span class="folder-icon file-icon"></span>
-                        <span>Exotic Options: Beyond Vanilla</span>
-                    </a>
-                </li>
-                <li class="folder-item">
-                    <a href="Articles/Derivatives/Volatility/volatility arbitrage a primer.html" class="folder-link">
-                        <span class="folder-icon file-icon"></span>
-                        <span>Volatility Arbitrage</span>
-                    </a>
-                </li>
-            </ul>
-        </section>
         <section class="about-section">
             <div class="about-image">
                 <img src="headshot.png" alt="my profile picture" class="about-image">
@@ -630,6 +646,24 @@
                     I get things done, and I do it efficiently.
                 </p>
             </div>
+        </section>
+        
+        <section class="folder-nav">
+            <h3>Latest</h3>
+            <ul class="folder-list">
+                <li class="folder-item">
+                    <a href="Articles/Derivatives/Introductions and Primers/exotic options beyond vanilla.html" class="folder-link">
+                        <span class="folder-icon file-icon"></span>
+                        <span>Exotic Options: Beyond Vanilla</span>
+                    </a>
+                </li>
+                <li class="folder-item">
+                    <a href="Articles/Derivatives/Volatility/volatility arbitrage a primer.html" class="folder-link">
+                        <span class="folder-icon file-icon"></span>
+                        <span>Volatility Arbitrage</span>
+                    </a>
+                </li>
+            </ul>
         </section>
 
         <section class="recent-articles">
