@@ -19,6 +19,7 @@
     { text: 'Home', href: 'index.html' },
     { text: 'Notes', href: 'notes.html' },
     { text: 'Bookshelf', href: 'Bookshelf.html' },
+    { text: 'Poker', href: 'poker.html' },
   ];
 
   // Inject brutalist styles
